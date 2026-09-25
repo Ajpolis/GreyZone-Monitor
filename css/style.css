@@ -102,6 +102,9 @@ a { color: var(--link); text-underline-offset: 2px; }
 }
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 22px;
@@ -308,6 +311,21 @@ a { color: var(--link); text-underline-offset: 2px; }
   color: var(--muted);
   border-bottom: 1px solid var(--line);
 }
+
+/* Shown only when focused, so keyboard users can jump past a long list. */
+.skip-list {
+  position: absolute;
+  left: -9999px;
+  min-height: 44px;
+  padding: 0 12px;
+  font: inherit;
+  font-weight: 500;
+  color: var(--link);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.skip-list:focus { position: static; margin: 8px 20px; }
 
 .incident-list { list-style: none; margin: 0; padding: 0; }
 
@@ -800,4 +818,13 @@ a { color: var(--link); text-underline-offset: 2px; }
   .page { padding-top: 24px; }
   .prose h1 { font-size: 30px; }
   .page-contents ol { columns: 1; }
+}
+
+/* Respect the system "reduce motion" setting. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
