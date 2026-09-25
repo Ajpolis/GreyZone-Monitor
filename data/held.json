@@ -1,0 +1,53 @@
+[
+  {
+    "id": "no-2025-09-27-bardufoss",
+    "date": "2025-09-27",
+    "country": "Norway",
+    "place": "Bardufoss and Brønnøysund",
+    "lat": 69.06,
+    "lon": 18.54,
+    "type": "Drone disruption",
+    "holdReason": "Pilot sightings only; no official confirmation that drones were present",
+    "sources": [
+      {
+        "label": "Euromaidan Press",
+        "url": "https://euromaidanpress.com/?p=362951"
+      }
+    ],
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "se-2025-11-06-gothenburg",
+    "date": "2025-11-06",
+    "country": "Sweden",
+    "place": "Landvetter Airport, Gothenburg",
+    "lat": 57.668,
+    "lon": 12.292,
+    "type": "Drone disruption",
+    "holdReason": "Police were still verifying whether drones were present",
+    "sources": [
+      {
+        "label": "Anadolu, Nov 2025",
+        "url": "https://aa.com.tr/en/europe/flights-diverted-as-swedish-airport-closes-airspace-after-drone-sighting/3737115"
+      }
+    ],
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "be-2025-10-liege-defence-site",
+    "date": "2025-10",
+    "country": "Belgium",
+    "place": "Near Liège",
+    "lat": 50.62,
+    "lon": 5.66,
+    "type": "Drone disruption",
+    "holdReason": "Only the company operating the site has reported the drones",
+    "sources": [
+      {
+        "label": "Liga",
+        "url": "https://news.liga.net/en/politics/news/more-drones-start-flying-over-secret-arms-company-factories-in-belgium"
+      }
+    ],
+    "lastChecked": "2026-09-25"
+  }
+]

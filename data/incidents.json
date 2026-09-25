@@ -1,0 +1,1906 @@
+[
+  {
+    "id": "bg-2022-07-31-karnobat",
+    "date": "2022-07-31",
+    "country": "Bulgaria",
+    "place": "Karnobat",
+    "lat": 42.65,
+    "lon": 26.98,
+    "locationPrecision": "town",
+    "type": "Explosives",
+    "status": "unattributed",
+    "targetCategory": "Defence industry and military supply",
+    "target": "Ammunition depot of an arms company",
+    "title": "Explosion and fire at an ammunition depot",
+    "summary": "Ammunition detonated in a fire at a warehouse belonging to an arms company that supplies Ukraine.",
+    "impact": "No injuries reported",
+    "note": "The owner blames Russia but has no direct evidence. Bulgarian prosecutors have linked earlier blasts at the same company to Russian military intelligence.",
+    "history": [
+      {
+        "date": "2022-07",
+        "status": "unattributed",
+        "reason": "Fits an officially linked pattern"
+      }
+    ],
+    "sources": [
+      {
+        "label": "RFE/RL, Mar 2023",
+        "url": "https://www.rferl.org/a/bulgaria-arms-depot-blasts-russia-ukraine-war-investigation/32322902.html"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "no-2022-10-drone-flights",
+    "date": "2022-10",
+    "country": "Norway",
+    "place": "Tromsø",
+    "lat": 69.65,
+    "lon": 18.96,
+    "locationPrecision": "approximate",
+    "type": "Drone disruption",
+    "status": "suspected",
+    "targetCategory": "Transport",
+    "target": "Airports and offshore oil and gas sites",
+    "title": "Drones over airports and oil and gas sites",
+    "summary": "Drones were seen near offshore platforms and airports; several Russian nationals were arrested for flying drones.",
+    "impact": "None reported",
+    "note": "The prime minister said it was unacceptable for foreign intelligence to fly drones over Norwegian airports.",
+    "history": [
+      {
+        "date": "2022-10",
+        "status": "suspected",
+        "reason": "Prime minister's statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Local, Oct 2022",
+        "url": "https://www.thelocal.no/20221019/norwegian-police-arrest-russian-for-drone-use-on-svalbard"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "police"
+  },
+  {
+    "id": "pl-2023-gdynia-restaurant",
+    "date": "2023",
+    "country": "Poland",
+    "place": "Gdynia",
+    "lat": 54.518,
+    "lon": 18.53,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "suspected",
+    "targetCategory": "Retail and commercial",
+    "target": "Restaurant",
+    "title": "Arson at a restaurant",
+    "summary": "A restaurant in Gdynia was set on fire.",
+    "impact": "About 3 million złoty of damage",
+    "note": "Prosecutors say it was commissioned by foreign intelligence; Poland blames Russia and Belarus for such attacks. Six people were indicted in 2025.",
+    "history": [
+      {
+        "date": "2025-08",
+        "status": "suspected",
+        "reason": "Indictment"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Notes from Poland, Aug 2025",
+        "url": "https://notesfrompoland.com/2025/08/13/poland-indicts-gang-accused-of-arson-attacks-on-behalf-of-foreign-intelligence/"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "bg-2023-06-karnobat",
+    "date": "2023-06",
+    "country": "Bulgaria",
+    "place": "Karnobat",
+    "lat": 42.65,
+    "lon": 26.98,
+    "locationPrecision": "town",
+    "type": "Explosives",
+    "status": "unattributed",
+    "targetCategory": "Defence industry and military supply",
+    "target": "Same ammunition depot",
+    "title": "Second explosion at the same depot",
+    "summary": "Explosions and a fire hit the same company's ammunition warehouses again.",
+    "impact": "No casualties reported",
+    "note": "The company suspects sabotage; the pattern matches earlier blasts that prosecutors linked to Russian military intelligence.",
+    "history": [
+      {
+        "date": "2023-06",
+        "status": "unattributed",
+        "reason": "Fits an officially linked pattern"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Novinite",
+        "url": "https://www.novinite.com/articles/224271/BREAKING%3A+Truck+Exploded+Near+Arsenal+Military+Plant+in+Bulgaria+%28UPDATED%29"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "ee-2023-12-08-tallinn-cars",
+    "date": "2023-12-08",
+    "country": "Estonia",
+    "place": "Tallinn",
+    "lat": 59.437,
+    "lon": 24.745,
+    "locationPrecision": "town",
+    "type": "Intimidation",
+    "status": "attributed",
+    "targetCategory": "Government and public buildings",
+    "target": "Cars of the interior minister and a journalist",
+    "title": "Minister's and journalist's cars smashed",
+    "summary": "The windows of the interior minister's car and a journalist's car were systematically smashed on the same night.",
+    "impact": "Two cars damaged",
+    "note": "Estonia's security service said the operation was coordinated by Russian special services; a court convicted the organiser.",
+    "history": [
+      {
+        "date": "2024-02",
+        "status": "attributed",
+        "reason": "Security service statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ERR, Feb 2024",
+        "url": "https://news.err.ee/1609258853/iss-russian-special-services-behind-attack-on-estonian-minister-s-car"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-wydminy-wastewater",
+    "date": "2024",
+    "country": "Poland",
+    "place": "Wydminy",
+    "lat": 54.02,
+    "lon": 22.03,
+    "locationPrecision": "town",
+    "type": "Cyber-physical attack",
+    "status": "suspected",
+    "targetCategory": "Water and utilities",
+    "target": "Wastewater treatment plant",
+    "title": "Hackers tamper with a village wastewater plant",
+    "summary": "A hacker group posted footage of itself manipulating a village wastewater plant's controls.",
+    "impact": "Not reported",
+    "note": "Claimed by a group that US authorities say was directed by Russian military intelligence.",
+    "history": [
+      {
+        "date": "2024",
+        "status": "suspected",
+        "reason": "Claim by an officially linked group"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Axios, Apr 2024",
+        "url": "https://www.axios.com/2024/04/17/russia-us-water-system-hacks-sandworm"
+      },
+      {
+        "label": "Defence24",
+        "url": "https://defence24.com/other/polish-water-and-sewage-sector-under-pro-russian-attacks-what-does-this-mean"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "gb-2024-mayfair-plot",
+    "date": "2024",
+    "country": "United Kingdom",
+    "place": "Mayfair, London",
+    "lat": 51.51,
+    "lon": -0.148,
+    "locationPrecision": "town",
+    "type": "Foiled plot",
+    "status": "attributed",
+    "targetCategory": "Retail and commercial",
+    "target": "Two businesses",
+    "title": "Plan to set fire to two London businesses",
+    "summary": "The Leyton group planned further arson attacks on two businesses owned by a critic of the Kremlin.",
+    "impact": "None; plot stopped",
+    "note": "Set out in court as part of the Wagner-directed case.",
+    "history": [
+      {
+        "date": "2025-07",
+        "status": "attributed",
+        "reason": "Court case"
+      }
+    ],
+    "sources": [
+      {
+        "label": "AP via Stripes, Jun 2025",
+        "url": "https://www.stripes.com/theaters/europe/2025-06-04/wagner-group-london-business-ukraine-arson-18010649.html"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "dk-2024-koge-waterworks",
+    "date": "2024",
+    "country": "Denmark",
+    "place": "Køge",
+    "lat": 55.457,
+    "lon": 12.182,
+    "locationPrecision": "town",
+    "type": "Cyber-physical attack",
+    "status": "attributed",
+    "targetCategory": "Water and utilities",
+    "target": "Waterworks",
+    "title": "Hackers burst water pipes",
+    "summary": "Hackers changed water pressure at a waterworks south of Copenhagen, bursting pipes.",
+    "impact": "About 50 homes without water for seven hours; 450 for one hour",
+    "note": "Danish defence intelligence named a group tied to the Russian state; Denmark summoned Russia's ambassador.",
+    "history": [
+      {
+        "date": "2025-12",
+        "status": "attributed",
+        "reason": "Defence intelligence statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Euronews, Dec 2025",
+        "url": "https://euronews.com/2025/12/19/denmark-blames-russia-for-cyberattacks-on-water-utility-and-election-websites"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-01-wroclaw-plot",
+    "date": "2024-01",
+    "country": "Poland",
+    "place": "Wrocław",
+    "lat": 51.107,
+    "lon": 17.038,
+    "locationPrecision": "town",
+    "type": "Foiled plot",
+    "status": "attributed",
+    "targetCategory": "Industry",
+    "target": "Paint factory",
+    "title": "Plot to set fire to a paint factory",
+    "summary": "A man was arrested while preparing to set fire to a paint factory and other targets in Wrocław.",
+    "impact": "None; plot stopped",
+    "note": "A court jailed him for eight years for planning sabotage on behalf of Russia.",
+    "history": [
+      {
+        "date": "2025-02",
+        "status": "attributed",
+        "reason": "Court conviction"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Euronews, Feb 2025",
+        "url": "https://www.euronews.com/2025/02/21/polish-court-sentences-ukrainian-national-for-planning-arson-on-russias-behalf"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "lv-2024-02-28-riga",
+    "date": "2024-02-28",
+    "country": "Latvia",
+    "place": "Riga",
+    "lat": 56.947,
+    "lon": 24.106,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "suspected",
+    "targetCategory": "Government and public buildings",
+    "target": "Museum of the Occupation of Latvia",
+    "title": "Firebomb thrown into the Occupation Museum",
+    "summary": "A window was smashed and an incendiary bottle thrown into the director's office.",
+    "impact": "Over €10,000 of damage; no injuries",
+    "note": "Latvia's security service pursued the organisers on suspicion of assisting Russia.",
+    "history": [
+      {
+        "date": "2024-04",
+        "status": "suspected",
+        "reason": "Security service investigation"
+      }
+    ],
+    "sources": [
+      {
+        "label": "LSM, Apr 2024",
+        "url": "https://eng.lsm.lv/article/society/crime/29.04.2024-occupation-museums-arson-may-have-been-orchestrated-from-prison.a552164/"
+      },
+      {
+        "label": "Baltic Times, Aug 2024",
+        "url": "https://www.baltictimes.com/eur_2_000_offered_to_criminal_for_hurling_molotov_cocktail_at_occupation_museum"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "fr-2024-03-courlandon",
+    "date": "2024-03",
+    "country": "France",
+    "place": "Courlandon",
+    "lat": 49.33,
+    "lon": 3.73,
+    "locationPrecision": "town",
+    "type": "Cyber-physical attack",
+    "status": "suspected",
+    "targetCategory": "Energy",
+    "target": "Small hydro mill",
+    "title": "Hackers open a hydro mill's valves",
+    "summary": "Hackers who believed they were attacking a dam manipulated a small hydro mill's controls.",
+    "impact": "Water level upstream dropped about 20 cm",
+    "note": "Same group as the Wydminy attack.",
+    "history": [
+      {
+        "date": "2024-04",
+        "status": "suspected",
+        "reason": "Claim by an officially linked group"
+      }
+    ],
+    "sources": [
+      {
+        "label": "InCyber",
+        "url": "https://incyber.org/en/article/report-examines-recent-activities-of-russian-cybercriminals-from-sandworm/"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-03-gdansk-warehouse",
+    "date": "2024-03",
+    "country": "Poland",
+    "place": "Gdańsk",
+    "lat": 54.352,
+    "lon": 18.646,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "suspected",
+    "targetCategory": "Logistics and postal",
+    "target": "Warehouse",
+    "title": "Arson attempt at a warehouse",
+    "summary": "An attempt was made to set fire to a warehouse in Gdańsk.",
+    "impact": "Not reported",
+    "note": "Part of the same indictment as the Gdynia restaurant fire.",
+    "history": [
+      {
+        "date": "2025-08",
+        "status": "suspected",
+        "reason": "Indictment"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Notes from Poland, Aug 2025",
+        "url": "https://notesfrompoland.com/2025/08/13/poland-indicts-gang-accused-of-arson-attacks-on-behalf-of-foreign-intelligence/"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "es-2024-03-madrid-warehouse",
+    "date": "2024-03",
+    "country": "Spain",
+    "place": "Fuenlabrada, near Madrid",
+    "lat": 40.284,
+    "lon": -3.794,
+    "locationPrecision": "approximate",
+    "type": "Arson",
+    "status": "suspected",
+    "targetCategory": "Logistics and postal",
+    "target": "Warehouse of the same Ukrainian firm as Leyton",
+    "title": "Arson at a Ukrainian firm's warehouse",
+    "summary": "A warehouse belonging to the same Ukrainian company hit in Leyton was set on fire near Madrid.",
+    "impact": "Not reported",
+    "note": "UK counter-terrorism police linked it to the Leyton case; no Spanish attribution found.",
+    "history": [
+      {
+        "date": "2025-07",
+        "status": "suspected",
+        "reason": "Linked by UK police"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Counter Terrorism Policing",
+        "url": "https://www.counterterrorism.police.uk/?p=30770"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "gb-2024-03-20-leyton",
+    "date": "2024-03-20",
+    "country": "United Kingdom",
+    "place": "Leyton, London",
+    "lat": 51.567,
+    "lon": -0.012,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Logistics and postal",
+    "target": "Warehouse of a Ukrainian-owned business",
+    "title": "Warehouse holding aid for Ukraine set alight",
+    "summary": "Two industrial units storing generators and satellite equipment bound for Ukraine were set on fire. Around 60 firefighters tackled the blaze.",
+    "impact": "Around £1 million of damage; no injuries reported",
+    "note": "A London jury convicted the attackers in July 2025. Prosecutors said the attack was organised through the Wagner Group on behalf of the Russian state.",
+    "history": [
+      {
+        "date": "2025-07",
+        "status": "attributed",
+        "reason": "Court convictions"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Al Jazeera, Jul 2025",
+        "url": "https://www.aljazeera.com/news/2025/7/9/uk-court-convicts-3-men-of-arson-in-attack-linked-to-russias-wagner-group"
+      },
+      {
+        "label": "Counter Terrorism Policing",
+        "url": "https://www.counterterrorism.police.uk/?p=30770"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-04-warsaw-diy-store",
+    "date": "2024-04",
+    "country": "Poland",
+    "place": "Warsaw",
+    "lat": 52.23,
+    "lon": 21.01,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Retail and commercial",
+    "target": "DIY store",
+    "title": "Arson at a DIY store",
+    "summary": "A large DIY store in Warsaw was set on fire.",
+    "impact": "Not reported",
+    "note": "Prosecutors charged a suspect as part of a group carrying out arson attacks linked to Russia. The trial is pending.",
+    "history": [
+      {
+        "date": "2025",
+        "status": "attributed",
+        "reason": "Prosecutors' charges"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Reuters via US News, Apr 2026",
+        "url": "https://www.usnews.com/news/world/articles/2026-04-02/three-men-face-trial-in-poland-over-alleged-russia-linked-arson-attacks"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-04-marki-storage",
+    "date": "2024-04",
+    "country": "Poland",
+    "place": "Marki",
+    "lat": 52.32,
+    "lon": 21.1,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "suspected",
+    "targetCategory": "Logistics and postal",
+    "target": "Pallet storage site",
+    "title": "Arson at a pallet storage site",
+    "summary": "A pallet storage facility near Warsaw was set on fire.",
+    "impact": "Not reported",
+    "note": "Part of the same indictment as the Gdynia restaurant fire.",
+    "history": [
+      {
+        "date": "2025-08",
+        "status": "suspected",
+        "reason": "Indictment"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Notes from Poland, Aug 2025",
+        "url": "https://notesfrompoland.com/2025/08/13/poland-indicts-gang-accused-of-arson-attacks-on-behalf-of-foreign-intelligence/"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "lt-2024-05-09-vilnius",
+    "date": "2024-05-09",
+    "country": "Lithuania",
+    "place": "Vilnius",
+    "lat": 54.687,
+    "lon": 25.279,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Retail and commercial",
+    "target": "IKEA store",
+    "title": "Arson at an IKEA store",
+    "summary": "An IKEA store in Vilnius was set on fire after closing hours.",
+    "impact": "About €500,000 of damage; no injuries",
+    "note": "Lithuanian prosecutors said in March 2025 that Russian military intelligence orchestrated it. Russia denies involvement.",
+    "history": [
+      {
+        "date": "2025-03",
+        "status": "attributed",
+        "reason": "Prosecutors' statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Guardian, Mar 2025",
+        "url": "https://www.theguardian.com/world/2025/mar/17/russia-behind-arson-attack-on-ikea-store-in-lithuania-capital-says-prosecutor"
+      },
+      {
+        "label": "Kyiv Independent via Yahoo",
+        "url": "https://www.yahoo.com/news/poland-charges-2-ukrainians-involvement-131629180.html"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-05-12-warsaw-marywilska",
+    "date": "2024-05-12",
+    "country": "Poland",
+    "place": "Warsaw",
+    "lat": 52.29,
+    "lon": 20.99,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Retail and commercial",
+    "target": "Marywilska 44 shopping centre",
+    "title": "Marywilska 44 shopping centre destroyed",
+    "summary": "A fire destroyed Warsaw's largest shopping centre, used by many Vietnamese-run businesses.",
+    "impact": "About 1,400 shops and service points destroyed",
+    "note": "Poland's prime minister said in May 2025 that Russian services ordered the arson. Poland closed a Russian consulate in response.",
+    "history": [
+      {
+        "date": "2025-05",
+        "status": "attributed",
+        "reason": "Government statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Reuters, May 2025",
+        "url": "https://www.reuters.com/world/europe/poland-says-russian-secret-service-behind-2024-fire-warsaw-shopping-centre-2025-05-11/"
+      },
+      {
+        "label": "Notes from Poland, Oct 2025",
+        "url": "https://notesfrompoland.com/2025/10/24/three-ukrainians-convicted-in-poland-over-role-in-russian-linked-arson-campaign/"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-05-23-warsaw-warehouse",
+    "date": "2024-05-23",
+    "country": "Poland",
+    "place": "Warsaw",
+    "lat": 52.23,
+    "lon": 21.01,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Logistics and postal",
+    "target": "Construction supply warehouse",
+    "title": "Arson at a construction warehouse",
+    "summary": "A construction supply warehouse in Warsaw was set on fire.",
+    "impact": "Not reported",
+    "note": "A suspect was charged with terrorism for acting on behalf of Russian intelligence.",
+    "history": [
+      {
+        "date": "2025-07",
+        "status": "attributed",
+        "reason": "Charges by the special services coordinator"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Record, Jul 2025",
+        "url": "https://therecord.media/poland-32-suspects-pro-russia-sabotage"
+      },
+      {
+        "label": "Ukrainska Pravda via Yahoo",
+        "url": "https://www.yahoo.com/news/articles/poland-accuses-colombian-national-arson-102425001.html"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-05-30-radom-warehouse",
+    "date": "2024-05-30",
+    "country": "Poland",
+    "place": "Radom",
+    "lat": 51.403,
+    "lon": 21.147,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Logistics and postal",
+    "target": "Construction supply warehouse",
+    "title": "Arson at a construction warehouse",
+    "summary": "A construction supply warehouse in Radom was set on fire; footage appeared on Russian-linked Telegram channels within hours.",
+    "impact": "No casualties",
+    "note": "Same suspect and charge as the Warsaw warehouse.",
+    "history": [
+      {
+        "date": "2025-07",
+        "status": "attributed",
+        "reason": "Charges by the special services coordinator"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Record, Jul 2025",
+        "url": "https://therecord.media/poland-32-suspects-pro-russia-sabotage"
+      },
+      {
+        "label": "TVP World, Jan 2026",
+        "url": "https://tvpworld.com/90930114/russian-spies-shared-clips-of-arson-hit-on-poland-report"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "cz-2024-06-06-prague",
+    "date": "2024-06-06",
+    "country": "Czechia",
+    "place": "Prague",
+    "lat": 50.075,
+    "lon": 14.437,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "suspected",
+    "targetCategory": "Transport",
+    "target": "City bus depot",
+    "title": "Arson attempt on city buses",
+    "summary": "An attacker set fire to buses at a Prague public transport depot; staff put the fire out.",
+    "impact": "Limited damage to three buses",
+    "note": "The prime minister said Russian involvement was very likely. The suspect was charged with terrorism.",
+    "history": [
+      {
+        "date": "2024-06",
+        "status": "suspected",
+        "reason": "Prime minister's statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Expats.cz, Jun 2024",
+        "url": "https://expats.cz/czech-news/article/czech-pm-blames-czech-arson-attack-on-russia-claims-hybrid-war"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-07-lodz-store",
+    "date": "2024-07",
+    "country": "Poland",
+    "place": "Łódź",
+    "lat": 51.759,
+    "lon": 19.456,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Retail and commercial",
+    "target": "DIY store",
+    "title": "Arson at a DIY store",
+    "summary": "A DIY store in Łódź caught fire; it was first blamed on poor storage of chemicals.",
+    "impact": "About 200,000 złoty of damage",
+    "note": "Prosecutors tie it to the parcel network they attribute to Russian military intelligence.",
+    "history": [
+      {
+        "date": "2025",
+        "status": "attributed",
+        "reason": "Prosecutors, as reported"
+      }
+    ],
+    "sources": [
+      {
+        "label": "VSquare",
+        "url": "https://vsquare.org/crossing-nato-lines-tracing-the-arson-sabotage-russia-gru-explosive-parcel-bombs/"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "de-2024-07-20-leipzig",
+    "date": "2024-07-20",
+    "country": "Germany",
+    "place": "Leipzig",
+    "lat": 51.42,
+    "lon": 12.24,
+    "locationPrecision": "town",
+    "type": "Incendiary device",
+    "status": "attributed",
+    "targetCategory": "Logistics and postal",
+    "target": "DHL air hub",
+    "title": "Parcel device ignites at the DHL air hub",
+    "summary": "A device hidden in a parcel caught fire at Leipzig airport before loading onto a cargo flight. It was one of four parcels sent from Vilnius.",
+    "impact": "Fire before loading; no injuries",
+    "note": "Lithuanian prosecutors said the network was organised by people linked to Russian military intelligence; 15 suspects have been charged.",
+    "history": [
+      {
+        "date": "2025-09",
+        "status": "attributed",
+        "reason": "Prosecutors' findings"
+      }
+    ],
+    "sources": [
+      {
+        "label": "LRT, Sep 2025",
+        "url": "https://lrt.lt/en/news-in-english/19/2681837/lithuania-says-it-busted-russian-linked-network-that-planned-terror-attacks-in-europe"
+      },
+      {
+        "label": "Euronews, Sep 2025",
+        "url": "https://www.euronews.com/2025/09/18/russia-backed-network-behind-detonating-parcels-in-europe-lithuania-says"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2024-07-21-parcel",
+    "date": "2024-07-21",
+    "country": "Poland",
+    "place": "Near Warsaw",
+    "lat": 52.2,
+    "lon": 20.9,
+    "locationPrecision": "approximate",
+    "type": "Incendiary device",
+    "status": "attributed",
+    "targetCategory": "Logistics and postal",
+    "target": "Courier truck",
+    "title": "Parcel device ignites in a courier truck",
+    "summary": "A parcel from the same batch as the Leipzig device caught fire in a courier truck in Poland.",
+    "impact": "Not reported",
+    "note": "Covered by Lithuanian prosecutors' findings on the parcel network. The exact town has not been confirmed by a source.",
+    "history": [
+      {
+        "date": "2025-09",
+        "status": "attributed",
+        "reason": "Prosecutors' findings"
+      }
+    ],
+    "sources": [
+      {
+        "label": "LRT, Sep 2025",
+        "url": "https://lrt.lt/en/news-in-english/19/2681837/lithuania-says-it-busted-russian-linked-network-that-planned-terror-attacks-in-europe"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "gb-2024-07-22-birmingham",
+    "date": "2024-07-22",
+    "country": "United Kingdom",
+    "place": "Minworth, Birmingham",
+    "lat": 52.52,
+    "lon": -1.76,
+    "locationPrecision": "town",
+    "type": "Incendiary device",
+    "status": "attributed",
+    "targetCategory": "Logistics and postal",
+    "target": "DHL warehouse",
+    "title": "Parcel fire at a DHL warehouse",
+    "summary": "A parcel device ignited at a DHL warehouse. It came from the same batch as the Leipzig device.",
+    "impact": "Not reported",
+    "note": "Covered by Lithuanian prosecutors' findings on the parcel network.",
+    "history": [
+      {
+        "date": "2025-09",
+        "status": "attributed",
+        "reason": "Prosecutors' findings"
+      }
+    ],
+    "sources": [
+      {
+        "label": "LRT, Sep 2025",
+        "url": "https://lrt.lt/en/news-in-english/19/2681837/lithuania-says-it-busted-russian-linked-network-that-planned-terror-attacks-in-europe"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "lt-2024-09-17-siauliai",
+    "date": "2024-09-17",
+    "country": "Lithuania",
+    "place": "Šiauliai",
+    "lat": 55.934,
+    "lon": 23.314,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Defence industry and military supply",
+    "target": "Radio equipment bound for Ukraine",
+    "title": "Two arson attempts on equipment for Ukraine",
+    "summary": "Two attempts were made to burn radio equipment made for Ukraine's armed forces; neither caused damage.",
+    "impact": "No damage",
+    "note": "Prosecutors say the group acted on instructions from Russian military intelligence; six people are on trial for terrorism.",
+    "history": [
+      {
+        "date": "2026-01",
+        "status": "attributed",
+        "reason": "Prosecutors' charges"
+      }
+    ],
+    "sources": [
+      {
+        "label": "LRT, Apr 2026",
+        "url": "https://archyvai.lrt.lt/en/news-in-english/19/2908146/lithuanian-court-hears-terrorism-case-over-arson-plot-targeting-ukraine-bound-equipment"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "se-2024-11-17-baltic-cables",
+    "date": "2024-11-17",
+    "country": "Sweden",
+    "place": "Baltic Sea, off Gotland and Öland",
+    "lat": 56.8,
+    "lon": 17.8,
+    "locationPrecision": "approximate",
+    "type": "Undersea cable or pipeline",
+    "status": "unattributed",
+    "targetCategory": "Communications",
+    "target": "Two data cables (Sweden–Lithuania, Finland–Germany)",
+    "title": "Two data cables cut within a day",
+    "summary": "Two undersea data cables were severed near-simultaneously; a Chinese bulk carrier was investigated.",
+    "impact": "Both cables cut; repaired later",
+    "note": "Germany's defence minister said nobody believed it was accidental. Swedish investigators could not establish that it was deliberate.",
+    "history": [
+      {
+        "date": "2024-11",
+        "status": "unattributed",
+        "reason": "Sabotage investigations opened"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DCD",
+        "url": "https://www.datacenterdynamics.com/en/news/no-signs-that-baltic-subsea-cuts-were-deliberate-says-swedish-authorities/"
+      },
+      {
+        "label": "The Local, Nov 2024",
+        "url": "https://www.thelocal.se/20241124/sweden-joins-danes-guarding-chinese-ship-in-cable-probe"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "fi-2024-12-25-estlink",
+    "date": "2024-12-25",
+    "country": "Finland",
+    "place": "Gulf of Finland",
+    "lat": 59.95,
+    "lon": 25.6,
+    "locationPrecision": "approximate",
+    "type": "Undersea cable or pipeline",
+    "status": "suspected",
+    "targetCategory": "Energy",
+    "target": "Estlink 2 power cable and telecoms cables",
+    "title": "Estlink 2 power cable and telecoms cables cut",
+    "summary": "A tanker allegedly dragged its anchor along the seabed, damaging a power link and several telecoms cables. Finland seized the ship.",
+    "impact": "Power link and telecoms cables damaged",
+    "note": "Finland and Estonia say the ship belongs to Russia's shadow fleet. A Helsinki court dismissed charges for lack of jurisdiction in October 2025; prosecutors appealed.",
+    "history": [
+      {
+        "date": "2024-12",
+        "status": "suspected",
+        "reason": "Government statements"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Kyiv Independent, Oct 2025",
+        "url": "https://kyivindependent.com/finland-court-drops-case-against-russian-shadow-fleet-tanker-crew/"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2025-tczew-hydro",
+    "date": "2025",
+    "country": "Poland",
+    "place": "Tczew",
+    "lat": 54.09,
+    "lon": 18.78,
+    "locationPrecision": "town",
+    "type": "Cyber-physical attack",
+    "status": "unattributed",
+    "targetCategory": "Energy",
+    "target": "Small hydropower plant",
+    "title": "Hackers disrupt a small hydropower plant",
+    "summary": "Hackers hit the same small hydropower plant twice; the second attack disrupted turbine operations.",
+    "impact": "Turbine operations disrupted",
+    "note": "Pro-Russian hacktivists are suspected; no official attribution.",
+    "history": [
+      {
+        "date": "2025",
+        "status": "unattributed",
+        "reason": "Fits an officially linked pattern"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Dark Reading",
+        "url": "https://www.darkreading.com/cyberattacks-data-breaches/russian-hacktivists-polish-power-plant-attack"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "ee-2025-01-17-osula",
+    "date": "2025-01-17",
+    "country": "Estonia",
+    "place": "Osula",
+    "lat": 57.87,
+    "lon": 27.06,
+    "locationPrecision": "approximate",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Retail and commercial",
+    "target": "Supermarket",
+    "title": "Arson at a village supermarket",
+    "summary": "A supermarket near a military training area was set on fire as a trial run.",
+    "impact": "Not reported",
+    "note": "An Estonian court found it was ordered by Russian military intelligence.",
+    "history": [
+      {
+        "date": "2025-07",
+        "status": "attributed",
+        "reason": "Court judgment"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Estonian Prosecutor's Office",
+        "url": "https://www.prokuratuur.ee/en/news/court-sentenced-slava-ukraina-restaurant-arsonist-real-imprisonment"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "se-2025-01-26-latvia-cable",
+    "date": "2025-01-26",
+    "country": "Sweden",
+    "place": "Baltic Sea, off Ventspils",
+    "lat": 57.4,
+    "lon": 20.0,
+    "locationPrecision": "approximate",
+    "type": "Undersea cable or pipeline",
+    "status": "withdrawn",
+    "targetCategory": "Communications",
+    "target": "Latvia–Gotland data cable",
+    "title": "Latvia–Gotland cable break ruled an accident",
+    "summary": "A data cable was severed by a ship's anchor; Sweden first investigated it as sabotage.",
+    "impact": "Cable severed",
+    "note": "Swedish prosecutors ruled it an accident caused by bad weather, faulty anchor equipment and poor seamanship.",
+    "history": [
+      {
+        "date": "2025-01",
+        "status": "suspected",
+        "reason": "Sabotage investigation opened"
+      },
+      {
+        "date": "2025-02",
+        "status": "withdrawn",
+        "reason": "Prosecutors ruled out sabotage"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Local, Oct 2025",
+        "url": "https://www.thelocal.se/20251014/sweden-closes-probe-into-latvia-cable-damage"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "ee-2025-01-31-tallinn-restaurant",
+    "date": "2025-01-31",
+    "country": "Estonia",
+    "place": "Tallinn",
+    "lat": 59.44,
+    "lon": 24.73,
+    "locationPrecision": "town",
+    "type": "Arson",
+    "status": "attributed",
+    "targetCategory": "Retail and commercial",
+    "target": "Ukrainian-themed restaurant",
+    "title": "Arson at a Ukrainian-themed restaurant",
+    "summary": "A window was smashed and petrol set alight inside a restaurant chosen for its pro-Ukrainian stance.",
+    "impact": "Not reported",
+    "note": "An Estonian court found it was ordered by Russian military intelligence.",
+    "history": [
+      {
+        "date": "2025-07",
+        "status": "attributed",
+        "reason": "Court judgment"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Estonian Prosecutor's Office",
+        "url": "https://www.prokuratuur.ee/en/news/court-sentenced-slava-ukraina-restaurant-arsonist-real-imprisonment"
+      },
+      {
+        "label": "ERR, Jul 2025",
+        "url": "https://news.err.ee/1609735683/arson-attack-on-ukrainian-restaurant-in-estonia-ordered-by-russian-intelligence"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "se-2025-02-c-lion1",
+    "date": "2025-02",
+    "country": "Sweden",
+    "place": "Baltic Sea, east of Gotland",
+    "lat": 57.4,
+    "lon": 19.3,
+    "locationPrecision": "approximate",
+    "type": "Undersea cable or pipeline",
+    "status": "unattributed",
+    "targetCategory": "Communications",
+    "target": "Finland–Germany data cable",
+    "title": "Third damage to the same data cable",
+    "summary": "Damage was found on a Finland–Germany data cable for the third time in three months.",
+    "impact": "Minor; traffic unaffected",
+    "note": "Swedish police opened a sabotage investigation; no culprit identified.",
+    "history": [
+      {
+        "date": "2025-02",
+        "status": "unattributed",
+        "reason": "Sabotage investigation opened"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Al Jazeera, Feb 2025",
+        "url": "https://www.aljazeera.com/news/2025/2/21/finland-sweden-probe-suspected-sabotage-of-undersea-telecoms-cable"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "se-2025-03-02-gotland-water",
+    "date": "2025-03-02",
+    "country": "Sweden",
+    "place": "Tingstäde, Gotland",
+    "lat": 57.73,
+    "lon": 18.61,
+    "locationPrecision": "town",
+    "type": "Other physical sabotage",
+    "status": "unattributed",
+    "targetCategory": "Water and utilities",
+    "target": "Raw-water pump",
+    "title": "Power cut to the island's water pump",
+    "summary": "Someone opened an electrical cabinet and disconnected power to a pump supplying much of the island's water.",
+    "impact": "Pump stopped for a few hours; drinking water unaffected",
+    "note": "Police confirmed deliberate interference; the security service is aware; no suspect named.",
+    "history": [
+      {
+        "date": "2025-03",
+        "status": "unattributed",
+        "reason": "Police sabotage investigation"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Local, Mar 2025",
+        "url": "https://thelocal.se/20250303/swedish-police-open-sabotage-probe-over-gotland-water-supply-damage"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "no-2025-04-07-bremanger",
+    "date": "2025-04-07",
+    "country": "Norway",
+    "place": "Bremanger",
+    "lat": 61.84,
+    "lon": 5.1,
+    "locationPrecision": "town",
+    "type": "Cyber-physical attack",
+    "status": "attributed",
+    "targetCategory": "Water and utilities",
+    "target": "Dam",
+    "title": "Dam controls hijacked, floodgate opened",
+    "summary": "Intruders took control of a dam's remote controls and opened a floodgate for about four hours before staff noticed.",
+    "impact": "About 500 litres a second released; no injuries",
+    "note": "Norway's security police attributed it in August 2025 to pro-Russian cyber actors. Russia's embassy called the claim unfounded.",
+    "history": [
+      {
+        "date": "2025-08",
+        "status": "attributed",
+        "reason": "Security police statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Reuters via ArcticToday, Aug 2025",
+        "url": "https://www.arctictoday.com/norway-spy-chief-blames-russian-hackers-for-dam-sabotage-in-april/"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2025-05-szczytno",
+    "date": "2025-05",
+    "country": "Poland",
+    "place": "Szczytno",
+    "lat": 53.563,
+    "lon": 20.987,
+    "locationPrecision": "town",
+    "type": "Cyber-physical attack",
+    "status": "unattributed",
+    "targetCategory": "Water and utilities",
+    "target": "Water treatment plant",
+    "title": "Hackers change settings at a water plant",
+    "summary": "Attackers accessed a water plant's control system and changed flushing cycles.",
+    "impact": "Not reported",
+    "note": "Poland's security agency confirmed the breach and said such groups are often fronts for Russian intelligence, without naming a culprit.",
+    "history": [
+      {
+        "date": "2026-05",
+        "status": "unattributed",
+        "reason": "Security agency report"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Next Web, May 2026",
+        "url": "https://thenextweb.com/news/poland-water-treatment-cyberattack-russia-us"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "gb-2025-05-london-pm-properties",
+    "date": "2025-05-08",
+    "country": "United Kingdom",
+    "place": "Kentish Town, London",
+    "lat": 51.55,
+    "lon": -0.14,
+    "locationPrecision": "town",
+    "type": "Intimidation",
+    "status": "suspected",
+    "targetCategory": "Government and public buildings",
+    "target": "Properties and a car linked to the prime minister",
+    "title": "Fires at properties linked to the prime minister",
+    "summary": "A car and two homes linked to the UK prime minister were set on fire over five days.",
+    "impact": "Minor fire damage",
+    "note": "UK officials examined whether Russia recruited the suspects. Russia denied involvement.",
+    "history": [
+      {
+        "date": "2025-05",
+        "status": "suspected",
+        "reason": "Officials' inquiry, as reported"
+      }
+    ],
+    "sources": [
+      {
+        "label": "AP, May 2025",
+        "url": "https://www.news4jax.com/news/world/2025/05/26/russia-denies-involvement-in-arson-at-properties-linked-to-uk-prime-minister-starmer/"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2025-09-jablonna-lacka",
+    "date": "2025-09",
+    "country": "Poland",
+    "place": "Jabłonna Lacka",
+    "lat": 52.47,
+    "lon": 22.44,
+    "locationPrecision": "town",
+    "type": "Cyber-physical attack",
+    "status": "unattributed",
+    "targetCategory": "Water and utilities",
+    "target": "Water treatment plant",
+    "title": "Hackers change pump and filter settings",
+    "summary": "An intruder used an administrator account to change pump, filter and alarm settings at a water plant.",
+    "impact": "Small changes to tank levels",
+    "note": "Confirmed by Poland's security agency in the same report as Szczytno.",
+    "history": [
+      {
+        "date": "2026-05",
+        "status": "unattributed",
+        "reason": "Security agency report"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Record, May 2026",
+        "url": "https://therecord.media/polish-intelligence-warns-hackers-attacked-water-treatment"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "dk-2025-09-22-copenhagen",
+    "date": "2025-09-22",
+    "country": "Denmark",
+    "place": "Copenhagen",
+    "lat": 55.62,
+    "lon": 12.65,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "withdrawn",
+    "targetCategory": "Transport",
+    "target": "Airport",
+    "title": "Airport closure over reported drones",
+    "summary": "Copenhagen airport closed for nearly four hours after reported drone sightings; the government called it a hybrid attack at the time.",
+    "impact": "Flights halted for nearly four hours",
+    "note": "After a nine-month investigation, Danish police said they could not confirm there had been drone activity.",
+    "history": [
+      {
+        "date": "2025-09",
+        "status": "suspected",
+        "reason": "Government statements"
+      },
+      {
+        "date": "2026-06",
+        "status": "withdrawn",
+        "reason": "Police could not confirm drones"
+      }
+    ],
+    "sources": [
+      {
+        "label": "AAP, 2026",
+        "url": "https://www.canberratimes.com.au/story/9299534/no-evidence-drones-shut-down-copenhagen-airport-police/"
+      },
+      {
+        "label": "Reuters via AJOT, Sep 2025",
+        "url": "https://www.ajot.com/news/denmark-links-drones-at-copenhagen-airport-to-hybrid-attacks-across-europe"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": null
+  },
+  {
+    "id": "no-2025-09-22-oslo",
+    "date": "2025-09-22",
+    "country": "Norway",
+    "place": "Oslo Airport, Gardermoen",
+    "lat": 60.194,
+    "lon": 11.1,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "withdrawn",
+    "targetCategory": "Transport",
+    "target": "Airport",
+    "title": "Airport closure over a reported drone",
+    "summary": "Oslo airport closed its airspace for about three hours after a reported drone sighting.",
+    "impact": "Flights diverted for about three hours",
+    "note": "Norwegian police shelved the case in November 2025, unable to confirm the sightings were drones.",
+    "history": [
+      {
+        "date": "2025-09",
+        "status": "suspected",
+        "reason": "Police investigation"
+      },
+      {
+        "date": "2025-11",
+        "status": "withdrawn",
+        "reason": "Police could not confirm drones"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Local, Nov 2025",
+        "url": "https://www.thelocal.no/20251107/norwegian-police-shelve-investigation-of-oslo-airport-drones"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": null
+  },
+  {
+    "id": "dk-2025-09-24-aalborg",
+    "date": "2025-09-24",
+    "country": "Denmark",
+    "place": "Aalborg",
+    "lat": 57.093,
+    "lon": 9.85,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "suspected",
+    "targetCategory": "Transport",
+    "target": "Airport, plus sites at Esbjerg, Sønderborg and Skrydstrup air base",
+    "title": "Drones close Aalborg airport",
+    "summary": "Drones were seen over Aalborg airport and several other Danish sites overnight; the airport closed for about three hours.",
+    "impact": "Airport closed for about three hours",
+    "note": "The government called it a systematic hybrid attack by a professional actor. No culprit was named; Russia denied involvement.",
+    "history": [
+      {
+        "date": "2025-09",
+        "status": "suspected",
+        "reason": "Government statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "The Local, Sep 2025",
+        "url": "https://www.thelocal.dk/20250925/hybrid-attack-denmark-says-airport-drone-flights-aimed-to-create-fear"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "police"
+  },
+  {
+    "id": "de-2025-09-25-kiel",
+    "date": "2025-09-25",
+    "country": "Germany",
+    "place": "Kiel",
+    "lat": 54.32,
+    "lon": 10.135,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "unattributed",
+    "targetCategory": "Energy",
+    "target": "Power plant, refinery, shipyard and military sites",
+    "title": "Drones over energy and defence sites",
+    "summary": "Drones flew over a power plant, a refinery, a submarine shipyard and government buildings on two nights.",
+    "impact": "None reported",
+    "note": "The state interior minister said a possible espionage operation was being investigated.",
+    "history": [
+      {
+        "date": "2025-09",
+        "status": "unattributed",
+        "reason": "Fits an officially linked pattern"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Marine Insight",
+        "url": "https://www.marineinsight.com/?p=1876117"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "police"
+  },
+  {
+    "id": "dk-2025-09-26-karup",
+    "date": "2025-09-26",
+    "country": "Denmark",
+    "place": "Karup",
+    "lat": 56.3,
+    "lon": 9.12,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "unattributed",
+    "targetCategory": "Military sites",
+    "target": "Denmark's largest air base",
+    "title": "Drones over Denmark's largest air base",
+    "summary": "Drones were seen inside and outside the air base perimeter; its airspace was briefly closed.",
+    "impact": "None reported",
+    "note": "Part of the late-September wave the government called a hybrid attack; no link made for this incident.",
+    "history": [
+      {
+        "date": "2025-09",
+        "status": "unattributed",
+        "reason": "Fits an officially linked pattern"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Euronews, Sep 2025",
+        "url": "https://euronews.com/2025/09/27/drones-observed-over-one-of-denmarks-largest-military-installations"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "police"
+  },
+  {
+    "id": "de-2025-10-02-munich-airport",
+    "date": "2025-10-02",
+    "country": "Germany",
+    "place": "Munich Airport",
+    "lat": 48.354,
+    "lon": 11.786,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "suspected",
+    "targetCategory": "Transport",
+    "target": "Airport",
+    "title": "Drone sightings halt Munich airport",
+    "summary": "Drone sightings grounded flights at Munich airport on two consecutive nights.",
+    "impact": "Dozens of flights disrupted; thousands of passengers affected",
+    "note": "Germany's chancellor said he assumed Russia was behind most of the drone flights.",
+    "history": [
+      {
+        "date": "2025-10",
+        "status": "suspected",
+        "reason": "Chancellor's statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Reuters via AOL, Oct 2025",
+        "url": "https://www.aol.com/articles/germanys-merz-assume-russia-behind-184128204.html"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": null
+  },
+  {
+    "id": "be-2025-10-02-elsenborn",
+    "date": "2025-10-02",
+    "country": "Belgium",
+    "place": "Elsenborn",
+    "lat": 50.46,
+    "lon": 6.22,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "suspected",
+    "targetCategory": "Military sites",
+    "target": "Military camp",
+    "title": "Fifteen drones over a military camp",
+    "summary": "About 15 drones circled a military camp before flying into German airspace.",
+    "impact": "None reported",
+    "note": "The defence ministry is examining links to foreign powers, including Russia.",
+    "history": [
+      {
+        "date": "2025-10",
+        "status": "suspected",
+        "reason": "Ministry investigation"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Polskie Radio, Oct 2025",
+        "url": "https://www.polskieradio.pl/395/7785/Artykul/3588232,drones-spotted-over-nato-military-base-in-belgium"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "police"
+  },
+  {
+    "id": "be-2025-10-25-marche",
+    "date": "2025-10-25",
+    "country": "Belgium",
+    "place": "Marche-en-Famenne",
+    "lat": 50.227,
+    "lon": 5.344,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "suspected",
+    "targetCategory": "Military sites",
+    "target": "Army brigade headquarters",
+    "title": "Drones over army headquarters",
+    "summary": "Drones flew over key parts of an army brigade headquarters on two nights.",
+    "impact": "None reported",
+    "note": "The defence minister called it an orchestrated operation; Russian involvement not confirmed.",
+    "history": [
+      {
+        "date": "2025-10",
+        "status": "suspected",
+        "reason": "Minister's statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Anadolu, Oct 2025",
+        "url": "https://aa.com.tr/en/europe/drones-spotted-over-military-base-in-belgium/3729588"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "military"
+  },
+  {
+    "id": "be-2025-10-31-kleine-brogel",
+    "date": "2025-10-31",
+    "country": "Belgium",
+    "place": "Kleine-Brogel",
+    "lat": 51.168,
+    "lon": 5.47,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "suspected",
+    "targetCategory": "Military sites",
+    "target": "Air base",
+    "title": "Drones over an air base three nights running",
+    "summary": "Drones flew over the air base on consecutive nights; attempts to jam or shoot them down failed.",
+    "impact": "None reported",
+    "note": "The defence minister pointed to Russia's methods and motives but said there was no formal evidence.",
+    "history": [
+      {
+        "date": "2025-11",
+        "status": "suspected",
+        "reason": "Minister's statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Liga",
+        "url": "https://news.liga.net/en/politics/news/unidentified-drones-spied-on-f-16s-and-ammunition-at-belgian-airbase-defense-minister"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "military"
+  },
+  {
+    "id": "be-2025-11-04-liege",
+    "date": "2025-11-04",
+    "country": "Belgium",
+    "place": "Liège Airport",
+    "lat": 50.637,
+    "lon": 5.443,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "suspected",
+    "targetCategory": "Transport",
+    "target": "Cargo airport",
+    "title": "Drones halt Liège cargo airport",
+    "summary": "Drone sightings suspended flights at Liège for about six hours.",
+    "impact": "Flights suspended for about six hours",
+    "note": "Belgian security services reportedly see Russia behind the wave; no formal attribution. Brussels airport sightings the same night were dropped after reporting cast doubt on them.",
+    "history": [
+      {
+        "date": "2025-11",
+        "status": "suspected",
+        "reason": "Security services, as reported"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Brussels Times, Nov 2025",
+        "url": "https://brusselstimes.com/belgium/1826523/drone-reports-shut-down-brussels-airport-what-we-know-so-far-tbtb/"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "air traffic control"
+  },
+  {
+    "id": "pl-2025-11-16-mika",
+    "date": "2025-11-16",
+    "country": "Poland",
+    "place": "Near Mika, Masovia",
+    "lat": 51.86,
+    "lon": 21.63,
+    "locationPrecision": "approximate",
+    "type": "Explosives",
+    "status": "attributed",
+    "targetCategory": "Transport",
+    "target": "Warsaw–Lublin rail line serving Ukraine",
+    "title": "Explosives on a rail line serving Ukraine",
+    "summary": "Explosives detonated under a freight train on the Warsaw–Lublin line; damage elsewhere halted a passenger train.",
+    "impact": "Track and a freight train damaged; no injuries",
+    "note": "Poland blamed Russian intelligence services; prosecutors charged two suspects who fled to Belarus.",
+    "history": [
+      {
+        "date": "2025-11",
+        "status": "attributed",
+        "reason": "Government statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Guardian, Nov 2025",
+        "url": "https://www.theguardian.com/world/2025/nov/18/ukrainians-working-for-russia-rail-blasts-says-poland-prime-minister-donald-tusk"
+      },
+      {
+        "label": "AP via Boston Globe, Dec 2025",
+        "url": "https://www.bostonglobe.com/2025/12/18/world/russia-europe-sabotage-campaign/"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "pl-2025-11-16-pulawy",
+    "date": "2025-11-16",
+    "country": "Poland",
+    "place": "Near Puławy",
+    "lat": 51.416,
+    "lon": 21.969,
+    "locationPrecision": "approximate",
+    "type": "Rail sabotage",
+    "status": "attributed",
+    "targetCategory": "Transport",
+    "target": "Same rail line",
+    "title": "Track and power lines damaged on the same line",
+    "summary": "A metal brace was fixed across the tracks and power wires were brought down on the same line.",
+    "impact": "Not reported",
+    "note": "Same case as the Mika explosion.",
+    "history": [
+      {
+        "date": "2025-11",
+        "status": "attributed",
+        "reason": "Government statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Guardian, Nov 2025",
+        "url": "https://www.theguardian.com/world/2025/nov/18/ukrainians-working-for-russia-rail-blasts-says-poland-prime-minister-donald-tusk"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "ie-2025-12-01-dublin",
+    "date": "2025-12-01",
+    "country": "Ireland",
+    "place": "Howth, Dublin",
+    "lat": 53.38,
+    "lon": -6.07,
+    "locationPrecision": "town",
+    "type": "Drone disruption",
+    "status": "suspected",
+    "targetCategory": "Transport",
+    "target": "Approach path of the Ukrainian president's plane",
+    "title": "Drones near the Ukrainian president's flight path",
+    "summary": "Several drones flew near the expected flight path of the Ukrainian president's plane; a navy ship observed them.",
+    "impact": "None; the plane had already landed",
+    "note": "The Irish prime minister linked the incident to tensions with Russia over frozen assets.",
+    "history": [
+      {
+        "date": "2025-12",
+        "status": "suspected",
+        "reason": "Prime minister's remarks"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Kyiv Independent, Dec 2025",
+        "url": "https://kyivindependent.com/unidentified-drones-reported-near-zelensky-arrival-route-in-dublin/"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "military"
+  },
+  {
+    "id": "ee-2025-12-31-gulf-cables",
+    "date": "2025-12-31",
+    "country": "Estonia",
+    "place": "Gulf of Finland",
+    "lat": 59.8,
+    "lon": 24.8,
+    "locationPrecision": "approximate",
+    "type": "Undersea cable or pipeline",
+    "status": "unattributed",
+    "targetCategory": "Communications",
+    "target": "Two Helsinki–Tallinn data cables",
+    "title": "Two data cables damaged by a dragged anchor",
+    "summary": "A cargo ship from St Petersburg was detained after its lowered anchor allegedly damaged two cables.",
+    "impact": "Two cables damaged",
+    "note": "Finnish police suspect aggravated sabotage; Estonia said the ship did not appear to be part of the shadow fleet.",
+    "history": [
+      {
+        "date": "2025-12",
+        "status": "unattributed",
+        "reason": "Sabotage investigation opened"
+      }
+    ],
+    "sources": [
+      {
+        "label": "ERR, Dec 2025",
+        "url": "https://news.err.ee/1609898537/finland-detains-vessel-after-cable-damaged-between-tallinn-and-helsinki"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "rs-2026-07-border-plot",
+    "date": "2026-07",
+    "country": "Serbia",
+    "place": "Near the Serbian–Hungarian border",
+    "lat": 46.1,
+    "lon": 19.67,
+    "locationPrecision": "approximate",
+    "type": "Foiled plot",
+    "status": "suspected",
+    "targetCategory": "Defence industry and military supply",
+    "target": "Suspected target in Germany",
+    "title": "Explosives seized in a suspected bomb plot",
+    "summary": "Two men were detained with explosives in their luggage, allegedly for an attack in Germany.",
+    "impact": "None; plot stopped",
+    "note": "Investigators suspect a Russian-linked plot aimed at military supplies for Ukraine.",
+    "history": [
+      {
+        "date": "2026-07",
+        "status": "suspected",
+        "reason": "Investigators' suspicion, as reported"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Tema, Jul 2026",
+        "url": "https://english.gazetatema.net/kosovo-region/serbia-detains-two-over-suspected-russian-sabotage-plot-i346182"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "de-2026-08-04-leipzig-drone",
+    "date": "2026-08-04",
+    "country": "Germany",
+    "place": "Leipzig/Halle Airport",
+    "lat": 51.432,
+    "lon": 12.241,
+    "locationPrecision": "town",
+    "type": "Drone attack",
+    "status": "attributed",
+    "targetCategory": "Transport",
+    "target": "Airport, near a Ukrainian cargo plane",
+    "title": "Explosive-laden drone found near a Ukrainian cargo plane",
+    "summary": "A drone carrying explosives was found near a Ukrainian cargo aircraft and defused; a second object later hit a cargo plane near the airport.",
+    "impact": "Airport closed for hours; minor damage to one aircraft",
+    "note": "Germany's government concluded Russia was responsible and closed a Russian consulate. Russia rejected the accusation.",
+    "history": [
+      {
+        "date": "2026-09",
+        "status": "attributed",
+        "reason": "Government statement"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Al Jazeera, Sep 2026",
+        "url": "https://www.aljazeera.com/news/2026/9/1/germany-accuses-russia-of-drone-attack-on-leipzig-airport"
+      },
+      {
+        "label": "CNN, Sep 2026",
+        "url": "https://www.cnn.com/2026/09/01/europe/leipzig-drone-germany-russia-intl"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25",
+    "droneConfirmedBy": "police"
+  },
+  {
+    "id": "bg-2026-08-10-belitsa",
+    "date": "2026-08-10",
+    "country": "Bulgaria",
+    "place": "Belitsa",
+    "lat": 41.95,
+    "lon": 23.57,
+    "locationPrecision": "town",
+    "type": "Explosives",
+    "status": "unattributed",
+    "targetCategory": "Defence industry and military supply",
+    "target": "Ammunition storage building",
+    "title": "Fire and explosions at an ammunition store",
+    "summary": "Fire and explosions destroyed an ammunition storage building belonging to the same arms company.",
+    "impact": "No injuries",
+    "note": "Fits the pattern of blasts at the same company that prosecutors linked to Russian military intelligence.",
+    "history": [
+      {
+        "date": "2026-08",
+        "status": "unattributed",
+        "reason": "Fits an officially linked pattern"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Defence Blog, Sep 2026",
+        "url": "https://defence-blog.com/?p=100932"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "de-2026-09-munich-defence-site",
+    "date": "2026-09",
+    "country": "Germany",
+    "place": "Munich",
+    "lat": 48.137,
+    "lon": 11.576,
+    "locationPrecision": "town",
+    "type": "Incendiary device",
+    "status": "suspected",
+    "targetCategory": "Defence industry and military supply",
+    "target": "Construction site near a defence electronics company",
+    "title": "Incendiary devices thrown at a defence company site",
+    "summary": "Incendiary devices were thrown at a construction site near a defence company's headquarters; one started a fire.",
+    "impact": "No injuries; no major damage",
+    "note": "Germany suspects Russian intelligence; two suspects were detained. Confirm with a German-language source.",
+    "history": [
+      {
+        "date": "2026-09",
+        "status": "suspected",
+        "reason": "Investigators' suspicion, as reported"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Euromaidan Press, Sep 2026",
+        "url": "https://euromaidanpress.com/2026/09/05/suspected-sabotage-hits-german-defense-firm/"
+      }
+    ],
+    "verified": true,
+    "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "bg-2026-09-12-tsareva-livada",
+    "date": "2026-09-12",
+    "country": "Bulgaria",
+    "place": "Tsareva Livada",
+    "lat": 42.95,
+    "lon": 25.28,
+    "locationPrecision": "town",
+    "type": "Explosives",
+    "status": "unattributed",
+    "targetCategory": "Defence industry and military supply",
+    "target": "Ammunition storage site",
+    "title": "Fire spreads across an ammunition store",
+    "summary": "A fire and explosions spread from warehouse to warehouse at the same company's storage site.",
+    "impact": "No injuries",
+    "note": "Cause not yet determined; same pattern as the company's earlier blasts.",
+    "history": [
+      {
+        "date": "2026-09",
+        "status": "unattributed",
+        "reason": "Fits an officially linked pattern"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Defence Blog, Sep 2026",
+        "url": "https://defence-blog.com/?p=100932"
+      }
+    ],
+    "verified": false,
+    "lastChecked": "2026-09-25"
+  }
+]
