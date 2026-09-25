@@ -569,6 +569,30 @@ a { color: var(--link); text-underline-offset: 2px; }
   border-radius: 50%;
 }
 
+/* Groups of nearby dots: a numbered signal circle. */
+.gz-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.gz-group:focus-visible { outline: 2px solid var(--link); outline-offset: 0; }
+.gz-group-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--surface);
+  background: var(--signal);
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--signal);
+}
+
 .mk-fill { fill: var(--signal); stroke: var(--surface); stroke-width: 1.5; }
 .mk-ring { fill: var(--surface); stroke: var(--signal); }
 .mk-dot { fill: var(--signal); }
