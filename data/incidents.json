@@ -28,7 +28,7 @@
         "url": "https://www.rferl.org/a/bulgaria-arms-depot-blasts-russia-ukraine-war-investigation/32322902.html"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -60,13 +60,13 @@
         "url": "https://www.thelocal.no/20221019/norwegian-police-arrest-russian-for-drone-use-on-svalbard"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": "police"
   },
   {
     "id": "pl-2023-gdynia-restaurant",
-    "date": "2023",
+    "date": "2023-06",
     "country": "Poland",
     "place": "Gdynia",
     "lat": 54.518,
@@ -125,7 +125,7 @@
         "url": "https://www.novinite.com/articles/224271/BREAKING%3A+Truck+Exploded+Near+Arsenal+Military+Plant+in+Bulgaria+%28UPDATED%29"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -157,7 +157,7 @@
         "url": "https://news.err.ee/1609258853/iss-russian-special-services-behind-attack-on-estonian-minister-s-car"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -193,7 +193,7 @@
         "url": "https://defence24.com/other/polish-water-and-sewage-sector-under-pro-russian-attacks-what-does-this-mean"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -225,7 +225,7 @@
         "url": "https://www.stripes.com/theaters/europe/2025-06-04/wagner-group-london-business-ukraine-arson-18010649.html"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -257,7 +257,7 @@
         "url": "https://euronews.com/2025/12/19/denmark-blames-russia-for-cyberattacks-on-water-utility-and-election-websites"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -289,7 +289,7 @@
         "url": "https://www.euronews.com/2025/02/21/polish-court-sentences-ukrainian-national-for-planning-arson-on-russias-behalf"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -357,7 +357,7 @@
         "url": "https://incyber.org/en/article/report-examines-recent-activities-of-russian-cybercriminals-from-sandworm/"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -389,7 +389,7 @@
         "url": "https://notesfrompoland.com/2025/08/13/poland-indicts-gang-accused-of-arson-attacks-on-behalf-of-foreign-intelligence/"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -421,7 +421,7 @@
         "url": "https://www.counterterrorism.police.uk/?p=30770"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -521,7 +521,7 @@
         "url": "https://notesfrompoland.com/2025/08/13/poland-indicts-gang-accused-of-arson-attacks-on-behalf-of-foreign-intelligence/"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -629,7 +629,7 @@
         "url": "https://www.yahoo.com/news/articles/poland-accuses-colombian-national-arson-102425001.html"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -665,7 +665,7 @@
         "url": "https://tvpworld.com/90930114/russian-spies-shared-clips-of-arson-hit-on-poland-report"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -729,7 +729,7 @@
         "url": "https://vsquare.org/crossing-nato-lines-tracing-the-arson-sabotage-russia-gru-explosive-parcel-bombs/"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -861,7 +861,7 @@
         "url": "https://archyvai.lrt.lt/en/news-in-english/19/2908146/lithuanian-court-hears-terrorism-case-over-arson-plot-targeting-ukraine-bound-equipment"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -961,7 +961,7 @@
         "url": "https://www.darkreading.com/cyberattacks-data-breaches/russian-hacktivists-polish-power-plant-attack"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -993,7 +993,7 @@
         "url": "https://www.prokuratuur.ee/en/news/court-sentenced-slava-ukraina-restaurant-arsonist-real-imprisonment"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1066,7 +1066,7 @@
         "url": "https://news.err.ee/1609735683/arson-attack-on-ukrainian-restaurant-in-estonia-ordered-by-russian-intelligence"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1098,7 +1098,7 @@
         "url": "https://www.aljazeera.com/news/2025/2/21/finland-sweden-probe-suspected-sabotage-of-undersea-telecoms-cable"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1130,7 +1130,7 @@
         "url": "https://thelocal.se/20250303/swedish-police-open-sabotage-probe-over-gotland-water-supply-damage"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1194,7 +1194,7 @@
         "url": "https://thenextweb.com/news/poland-water-treatment-cyberattack-russia-us"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1226,7 +1226,7 @@
         "url": "https://www.news4jax.com/news/world/2025/05/26/russia-denies-involvement-in-arson-at-properties-linked-to-uk-prime-minister-starmer/"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1258,7 +1258,7 @@
         "url": "https://therecord.media/polish-intelligence-warns-hackers-attacked-water-treatment"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1299,7 +1299,7 @@
         "url": "https://www.ajot.com/news/denmark-links-drones-at-copenhagen-airport-to-hybrid-attacks-across-europe"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": null
   },
@@ -1337,7 +1337,7 @@
         "url": "https://www.thelocal.no/20251107/norwegian-police-shelve-investigation-of-oslo-airport-drones"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": null
   },
@@ -1403,7 +1403,7 @@
         "url": "https://www.marineinsight.com/?p=1876117"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": "police"
   },
@@ -1436,7 +1436,7 @@
         "url": "https://euronews.com/2025/09/27/drones-observed-over-one-of-denmarks-largest-military-installations"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": "police"
   },
@@ -1469,7 +1469,7 @@
         "url": "https://www.polskieradio.pl/395/7785/Artykul/3588232,drones-spotted-over-nato-military-base-in-belgium"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": "police"
   },
@@ -1502,7 +1502,7 @@
         "url": "https://aa.com.tr/en/europe/drones-spotted-over-military-base-in-belgium/3729588"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": "military"
   },
@@ -1535,7 +1535,7 @@
         "url": "https://news.liga.net/en/politics/news/unidentified-drones-spied-on-f-16s-and-ammunition-at-belgian-airbase-defense-minister"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": "military"
   },
@@ -1568,7 +1568,7 @@
         "url": "https://brusselstimes.com/belgium/1826523/drone-reports-shut-down-brussels-airport-what-we-know-so-far-tbtb/"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": "air traffic control"
   },
@@ -1669,7 +1669,7 @@
         "url": "https://kyivindependent.com/unidentified-drones-reported-near-zelensky-arrival-route-in-dublin/"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25",
     "droneConfirmedBy": "military"
   },
@@ -1702,7 +1702,7 @@
         "url": "https://news.err.ee/1609898537/finland-detains-vessel-after-cable-damaged-between-tallinn-and-helsinki"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1734,7 +1734,7 @@
         "url": "https://english.gazetatema.net/kosovo-region/serbia-detains-two-over-suspected-russian-sabotage-plot-i346182"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1803,7 +1803,7 @@
         "url": "https://defence-blog.com/?p=100932"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   },
   {
@@ -1867,7 +1867,7 @@
         "url": "https://defence-blog.com/?p=100932"
       }
     ],
-    "verified": false,
+    "verified": true,
     "lastChecked": "2026-09-25"
   }
 ]
