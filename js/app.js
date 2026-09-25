@@ -65,9 +65,9 @@ function setUpMap(incidents) {
   document.getElementById("zoom-out").addEventListener("click", () => map.zoomOut());
   document.getElementById("zoom-europe").addEventListener("click", () => map.fitBounds(EUROPE_BOUNDS));
 
+  // Markers are created once; applyFilters() adds and removes them.
   for (const incident of incidents) {
-    const label = `${incident.place}, ${incident.country}: ${incident.title}. ` +
-      (incident.type === "Foiled plot" ? "Foiled plot, " : "") + GRADE_NAMES[incident.status];
+    const label = incidentLabel(incident);
     const marker = L.marker([incident.lat, incident.lon], {
       icon: L.divIcon({
         className: "gz-marker",
@@ -76,30 +76,236 @@ function setUpMap(incidents) {
       }),
       title: label,
       riseOnHover: true,
-    }).addTo(map);
-    const el = marker.getElement();
-    el.setAttribute("aria-label", label);
+    });
     marker.on("click", () => selectIncident(incident.id));
-    // Leaflet gives markers role="button", so Enter and Space must work too.
-    el.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        selectIncident(incident.id);
-      }
+    // Leaflet rebuilds the marker element each time it is added to the map.
+    marker.on("add", () => {
+      const el = marker.getElement();
+      el.setAttribute("aria-label", label);
+      el.classList.toggle("is-selected", mapState.selectedId === incident.id);
+      // Leaflet gives markers role="button", so Enter and Space must work too.
+      el.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectIncident(incident.id);
+        }
+      });
     });
     mapState.markers.set(incident.id, marker);
   }
   mapState.map = map;
 }
 
-// Step 5 opens the record here; for now selection only marks the dot.
-function selectIncident(id) {
+function incidentLabel(incident) {
+  return `${incident.place}, ${incident.country}: ${incident.title}. ` +
+    (incident.type === "Foiled plot" ? "Foiled plot, " : "") + GRADE_NAMES[incident.status];
+}
+
+// Step 5 opens the record here; for now selection marks the dot and the list entry.
+function selectIncident(id, { pan = false } = {}) {
   if (mapState.selectedId) {
     mapState.markers.get(mapState.selectedId)?.getElement()?.classList.remove("is-selected");
   }
   mapState.selectedId = id;
-  mapState.markers.get(id)?.getElement()?.classList.add("is-selected");
+  const marker = mapState.markers.get(id);
+  marker?.getElement()?.classList.add("is-selected");
+  if (pan && marker) mapState.map.panInside(marker.getLatLng(), { padding: [60, 60] });
+  for (const item of document.querySelectorAll(".incident-item")) {
+    if (item.dataset.id === id) item.setAttribute("aria-current", "true");
+    else item.removeAttribute("aria-current");
+  }
   document.getElementById("map-hint").hidden = Boolean(id);
+}
+
+// Filters. They live in the web address so a filtered view can be shared.
+
+const ALL_GRADES = Object.keys(GRADE_NAMES);
+
+const filters = {
+  grades: new Set(ALL_GRADES),
+  foiled: false,
+  q: "",
+  type: "",
+  country: "",
+  year: "",
+};
+
+function resetFilters() {
+  filters.grades = new Set(ALL_GRADES);
+  filters.foiled = false;
+  filters.q = filters.type = filters.country = filters.year = "";
+}
+
+function readFiltersFromUrl() {
+  const params = new URLSearchParams(location.search);
+  if (params.has("grades")) {
+    filters.grades = new Set(params.get("grades").split(",").filter((g) => ALL_GRADES.includes(g)));
+  }
+  filters.foiled = params.get("foiled") === "1";
+  filters.q = params.get("q") || "";
+  filters.type = params.get("type") || "";
+  filters.country = params.get("country") || "";
+  filters.year = params.get("year") || "";
+}
+
+function writeFiltersToUrl() {
+  const params = new URLSearchParams();
+  if (filters.grades.size !== ALL_GRADES.length) {
+    params.set("grades", ALL_GRADES.filter((g) => filters.grades.has(g)).join(","));
+  }
+  if (filters.foiled) params.set("foiled", "1");
+  for (const key of ["q", "type", "country", "year"]) {
+    if (filters[key]) params.set(key, filters[key]);
+  }
+  const query = params.toString();
+  history.replaceState(null, "", `${location.pathname}${query ? `?${query}` : ""}${location.hash}`);
+}
+
+// Lower case without accents, so "lodz" finds Łódź and "tromso" finds Tromsø.
+function fold(text) {
+  return text.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replace(/ø/g, "o").replace(/ł/g, "l");
+}
+
+function matches(incident, { ignoreGrade = false, ignoreFoiled = false } = {}) {
+  const isFoiled = incident.type === "Foiled plot";
+  if (isFoiled && !ignoreFoiled && !filters.foiled && filters.type !== "Foiled plot") return false;
+  if (!ignoreGrade && !filters.grades.has(incident.status)) return false;
+  if (filters.type && incident.type !== filters.type) return false;
+  if (filters.country && incident.country !== filters.country) return false;
+  if (filters.year && incident.date.slice(0, 4) !== filters.year) return false;
+  if (filters.q) {
+    const haystack = fold([incident.place, incident.country, incident.title, incident.type,
+      incident.targetCategory, incident.target].join(" "));
+    if (!fold(filters.q).split(/\s+/).every((word) => haystack.includes(word))) return false;
+  }
+  return true;
+}
+
+function fillSelect(id, values) {
+  const select = document.getElementById(id);
+  for (const value of values) select.add(new Option(value, value));
+}
+
+function syncControls() {
+  for (const button of document.querySelectorAll(".grade-toggle")) {
+    button.setAttribute("aria-pressed", String(filters.grades.has(button.dataset.grade)));
+  }
+  document.getElementById("foiled-toggle").setAttribute("aria-pressed", String(filters.foiled));
+  document.getElementById("search").value = filters.q;
+  document.getElementById("filter-type").value = filters.type;
+  document.getElementById("filter-country").value = filters.country;
+  document.getElementById("filter-year").value = filters.year;
+}
+
+function setUpFilters(incidents) {
+  const unique = (key) => [...new Set(incidents.map(key))].sort();
+  fillSelect("filter-type", unique((e) => e.type));
+  fillSelect("filter-country", unique((e) => e.country));
+  fillSelect("filter-year", unique((e) => e.date.slice(0, 4)).reverse());
+
+  readFiltersFromUrl();
+  syncControls();
+
+  const moreButton = document.getElementById("more-filters-button");
+  const morePanel = document.getElementById("more-filters");
+  const setMoreOpen = (open) => {
+    moreButton.setAttribute("aria-expanded", String(open));
+    morePanel.hidden = !open;
+  };
+  setMoreOpen(Boolean(filters.type || filters.country || filters.year));
+  moreButton.addEventListener("click", () => setMoreOpen(morePanel.hidden));
+
+  const update = () => {
+    writeFiltersToUrl();
+    applyFilters(incidents);
+  };
+
+  for (const button of document.querySelectorAll(".grade-toggle")) {
+    button.addEventListener("click", () => {
+      const grade = button.dataset.grade;
+      if (filters.grades.has(grade)) filters.grades.delete(grade);
+      else filters.grades.add(grade);
+      button.setAttribute("aria-pressed", String(filters.grades.has(grade)));
+      update();
+    });
+  }
+  document.getElementById("foiled-toggle").addEventListener("click", (event) => {
+    filters.foiled = !filters.foiled;
+    event.currentTarget.setAttribute("aria-pressed", String(filters.foiled));
+    update();
+  });
+  document.getElementById("search").addEventListener("input", (event) => {
+    filters.q = event.target.value.trim();
+    update();
+  });
+  for (const key of ["type", "country", "year"]) {
+    document.getElementById(`filter-${key}`).addEventListener("change", (event) => {
+      filters[key] = event.target.value;
+      update();
+    });
+  }
+  document.getElementById("clear-filters").addEventListener("click", () => {
+    resetFilters();
+    syncControls();
+    update();
+    document.getElementById("search").focus();
+  });
+
+  applyFilters(incidents);
+}
+
+function applyFilters(incidents) {
+  const shown = incidents.filter((e) => matches(e));
+  const shownIds = new Set(shown.map((e) => e.id));
+
+  for (const button of document.querySelectorAll(".grade-toggle")) {
+    const count = incidents.filter((e) => e.status === button.dataset.grade && matches(e, { ignoreGrade: true })).length;
+    button.querySelector(".grade-toggle-count").textContent = count;
+  }
+  document.getElementById("foiled-count").textContent =
+    incidents.filter((e) => e.type === "Foiled plot" && matches(e, { ignoreFoiled: true })).length;
+
+  for (const [id, marker] of mapState.markers) {
+    if (shownIds.has(id)) marker.addTo(mapState.map);
+    else marker.remove();
+  }
+  if (mapState.selectedId && !shownIds.has(mapState.selectedId)) selectIncident(null);
+
+  document.getElementById("result-count").textContent = `Showing ${shown.length} of ${incidents.length}`;
+  document.getElementById("no-results").hidden = shown.length > 0;
+  renderList(shown);
+}
+
+function renderList(shown) {
+  const newestFirst = [...shown].sort((a, b) => b.date.localeCompare(a.date));
+  const list = document.getElementById("incident-list");
+  list.replaceChildren(...newestFirst.map((incident) => {
+    const li = document.createElement("li");
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "incident-item";
+    button.dataset.id = incident.id;
+    if (incident.id === mapState.selectedId) button.setAttribute("aria-current", "true");
+    button.innerHTML = `
+      <span class="marker-icon">${markerSvg(markerKind(incident))}</span>
+      <span class="incident-where"><span></span><time class="incident-date"></time></span>
+      <span class="incident-title"></span>
+      <span class="incident-type"></span>`;
+    // Data goes in as text, never as HTML.
+    button.querySelector(".incident-where span").textContent = `${incident.place}, ${incident.country}`;
+    const time = button.querySelector("time");
+    time.dateTime = incident.date;
+    time.textContent = formatDate(incident.date);
+    button.querySelector(".incident-title").textContent = incident.title;
+    // The marker shows the grade; screen readers hear it as text.
+    const grade = document.createElement("span");
+    grade.className = "visually-hidden";
+    grade.textContent = `. ${GRADE_NAMES[incident.status]}`;
+    button.querySelector(".incident-type").append(incident.type, grade);
+    button.addEventListener("click", () => selectIncident(incident.id, { pan: true }));
+    li.append(button);
+    return li;
+  }));
 }
 
 function showLegend() {
@@ -159,6 +365,7 @@ async function main() {
     const incidents = await response.json();
     showTotals(incidents);
     setUpMap(incidents);
+    setUpFilters(incidents);
     showLatestChanges(incidents);
   } catch (err) {
     document.getElementById("intro-summary").textContent = "The incident data could not be loaded.";
