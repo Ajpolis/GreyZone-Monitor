@@ -602,6 +602,39 @@ a { color: var(--link); text-underline-offset: 2px; }
 .changes li:first-child { border-top: 0; padding-top: 0; }
 .changes time { display: block; color: var(--muted); font-size: 14px; }
 
+/* Method and About pages */
+
+.page { padding-top: 40px; padding-bottom: 56px; }
+
+.prose { max-width: 68ch; }
+.prose h1 { font-size: 40px; margin-bottom: 8px; }
+.prose h2 { font-size: 24px; margin: 36px 0 10px; scroll-margin-top: 16px; }
+.prose p, .prose li { margin: 0 0 12px; }
+.prose ul { padding-left: 1.2em; margin: 0 0 12px; }
+.lede { font-size: 18px; color: var(--muted); }
+
+.page-contents {
+  margin: 24px 0 8px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.page-contents ol { margin: 0; padding-left: 1.3em; columns: 2; column-gap: 32px; }
+.page-contents li { margin: 0; break-inside: avoid; }
+.page-contents a { display: inline-block; padding: 6px 0; }
+
+.grade-list { margin: 0 0 12px; }
+.grade-list div {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.grade-list div:last-child { border-bottom: 1px solid var(--line); }
+.grade-list dt { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.grade-list dd { margin: 4px 0 0 26px; }
+
+.inline-marker { vertical-align: -2px; }
+
 /* Footer */
 
 .site-footer {
@@ -739,4 +772,8 @@ a { color: var(--link); text-underline-offset: 2px; }
   .legend-list { grid-template-columns: repeat(2, auto); justify-content: start; }
 
   .below-map { grid-template-columns: 1fr; gap: 28px; padding-top: 28px; }
+
+  .page { padding-top: 24px; }
+  .prose h1 { font-size: 30px; }
+  .page-contents ol { columns: 1; }
 }

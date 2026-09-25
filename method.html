@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Method · GreyZone Monitor</title>
+  <meta name="description" content="How GreyZone Monitor decides what counts as an incident and how it grades the evidence of Russian involvement.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="./">GreyZone Monitor</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <a href="./">Map</a>
+        <a href="method.html" aria-current="page">Method</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap page">
+    <article class="prose">
+      <h1>Method</h1>
+      <p class="lede">How we decide what goes on the map, and how we grade the evidence that Russia was involved.</p>
+
+      <nav class="page-contents" aria-label="On this page">
+        <ol>
+          <li><a href="#what-counts">What counts as an incident</a></li>
+          <li><a href="#where-when">Where and when</a></li>
+          <li><a href="#grading">How attribution is graded</a></li>
+          <li><a href="#drones">The drone rule</a></li>
+          <li><a href="#foiled">Foiled plots</a></li>
+          <li><a href="#rules">Rules for every entry</a></li>
+          <li><a href="#finding">How incidents are found</a></li>
+          <li><a href="#limits">Limits</a></li>
+          <li><a href="#corrections">Corrections</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="what-counts">What counts as an incident</h2>
+      <p>An incident is a physical act of sabotage, or a serious attempt at one, against people, property or infrastructure. We include:</p>
+      <ul>
+        <li>arson and incendiary devices</li>
+        <li>explosives</li>
+        <li>sabotage of railways</li>
+        <li>damage to undersea cables and pipelines</li>
+        <li>cyber attacks with physical effects, such as tampering with water or heating systems</li>
+        <li>drones over airports, military sites and other critical sites</li>
+        <li>intimidation of officials</li>
+        <li>plots that were stopped before they were carried out</li>
+      </ul>
+
+      <h2 id="where-when">Where and when</h2>
+      <p>We cover the European Union, the United Kingdom, Norway, Switzerland, Moldova and the Western Balkans, from February 2022 onwards. Incidents inside Ukraine are not included.</p>
+
+      <h2 id="grading">How attribution is graded</h2>
+      <p>Every incident gets one of four grades, based on what officials have said in public. Each grade has its own marker shape, so it can be read without colour.</p>
+      <dl class="grade-list">
+        <div>
+          <dt><span class="marker-icon"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle class="mk-fill" cx="8" cy="8" r="7"/></svg></span>Attributed</dt>
+          <dd>A government, prosecutor or court has publicly said Russia or its proxies were behind it.</dd>
+        </div>
+        <div>
+          <dt><span class="marker-icon"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle class="mk-ring" cx="8" cy="8" r="6" stroke-width="3"/><circle class="mk-dot" cx="8" cy="8" r="2"/></svg></span>Suspected</dt>
+          <dd>Officials have linked it to Russia, or declined to rule Russia out, without a formal attribution.</dd>
+        </div>
+        <div>
+          <dt><span class="marker-icon"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle class="mk-ring" cx="8" cy="8" r="6.5" stroke-width="2" stroke-dasharray="3.4 2.4"/></svg></span>Unattributed</dt>
+          <dd>Deliberate sabotage that fits a pattern officials have linked to Russia, where no official has linked this particular incident. Sabotage with no Russia link at all is left out.</dd>
+        </div>
+        <div>
+          <dt><span class="marker-icon"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle class="mk-withdrawn" cx="8" cy="8" r="6.5"/><line class="mk-slash" x1="3.5" y1="12.5" x2="12.5" y2="3.5"/></svg></span>Withdrawn</dt>
+          <dd>Officials treated it as suspected sabotage and later ruled that out or could not confirm it. It stays on the map, with the reason.</dd>
+        </div>
+      </dl>
+      <p>When sources disagree, we use the weaker grade and explain the disagreement in the entry. Every change of grade is recorded in the entry's grade history, with the date and the reason.</p>
+
+      <h2 id="drones">The drone rule</h2>
+      <p>Drone sightings are often reported before anyone has confirmed them. A drone incident goes on the map only once the police, the military, the airport operator or air traffic control has confirmed that drones were present. Sightings without that confirmation are kept on hold and not shown.</p>
+
+      <h2 id="foiled">Foiled plots</h2>
+      <p>Plots that were stopped before they were carried out are shown as hollow squares <span class="marker-icon inline-marker"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect class="mk-ring" x="2" y="2" width="12" height="12" stroke-width="2.5"/></svg></span> whatever their grade; the grade appears in the list and in the record. Because nothing happened on the ground, foiled plots are hidden by default. Use "Show foiled plots" on the map page to include them.</p>
+
+      <h2 id="rules">Rules for every entry</h2>
+      <ul>
+        <li>Every entry links to at least one source we have read.</li>
+        <li>Summaries are written in our own words.</li>
+        <li>No individuals are named, including people who have been charged or convicted.</li>
+        <li>Locations are given to the nearest town, never the exact site.</li>
+        <li>We record incidents only. We never list or map sites that have not been attacked.</li>
+        <li>Each entry shows the date it was last checked.</li>
+      </ul>
+
+      <h2 id="finding">How incidents are found</h2>
+      <p>We follow official statements, court records and news reporting across the countries we cover. Each incident is checked by hand against its sources before it is published, and the grade is set from what officials have said, not from commentary.</p>
+
+      <h2 id="limits">Limits</h2>
+      <ul>
+        <li><strong>Open sources only.</strong> We see what governments, courts and journalists make public. Many incidents are never attributed in public, and some are never reported.</li>
+        <li><strong>Attribution takes time.</strong> Investigations often run for months or years, so recent incidents tend to carry weaker grades.</li>
+        <li><strong>Grades change.</strong> An entry can move up or down as new findings are published. Withdrawn entries stay visible so the record is complete.</li>
+      </ul>
+
+      <h2 id="corrections">Corrections</h2>
+      <p>If you think an entry is wrong, out of date or missing, please write to [contact address] with a link to your source. When a correction changes a grade, the change is recorded in the entry's grade history.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</p>
+      <p>This is an independent log built from open sources. Grades reflect what officials have said publicly and can change as investigations continue.</p>
+      <p>Corrections and contact: [contact address]</p>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+</html>
