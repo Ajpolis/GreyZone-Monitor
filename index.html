@@ -45,6 +45,7 @@
     <section class="wrap explorer-wrap" aria-label="Incident map and list">
       <div class="explorer">
         <aside class="rail" id="rail" aria-label="Filters and incident list">
+          <div class="list-view" id="list-view">
           <div class="rail-controls">
             <div class="grade-toggles" role="group" aria-label="Show grades">
               <button type="button" class="grade-toggle" data-grade="attributed" aria-pressed="true"><span class="marker-icon" data-marker="attributed"></span><span class="grade-toggle-name">Attributed</span><span class="grade-toggle-count"></span></button>
@@ -74,6 +75,38 @@
             <p>Try turning more grades back on, or removing a word from the search.</p>
             <button type="button" class="clear-filters" id="clear-filters">Clear all filters</button>
           </div>
+          </div>
+
+          <article class="record" id="record" hidden aria-labelledby="record-title">
+            <button type="button" class="back-button" id="back-button">All incidents</button>
+            <div class="record-body">
+              <div class="withdrawn-banner" id="record-withdrawn" hidden>
+                <p class="withdrawn-title">This entry has been withdrawn</p>
+                <p id="record-withdrawn-reason"></p>
+              </div>
+              <p class="grade-pill"><span class="marker-icon" id="record-marker"></span><span id="record-grade"></span></p>
+              <h2 class="record-title" id="record-title" tabindex="-1"></h2>
+              <p class="record-where" id="record-where"></p>
+              <dl class="fact-box">
+                <div><dt>Type</dt><dd id="record-type"></dd></div>
+                <div><dt>Target</dt><dd id="record-target"></dd></div>
+                <div><dt>Impact</dt><dd id="record-impact"></dd></div>
+              </dl>
+              <h3>What happened</h3>
+              <p id="record-summary"></p>
+              <h3>Attribution</h3>
+              <p id="record-note"></p>
+              <h3>Grade history</h3>
+              <ol class="grade-history" id="record-history"></ol>
+              <h3>Sources</h3>
+              <ul class="record-sources" id="record-sources"></ul>
+              <div class="record-footer">
+                <p class="last-checked" id="record-checked"></p>
+                <button type="button" class="copy-link" id="copy-link">Copy link</button>
+              </div>
+              <p class="copy-status" id="copy-status" aria-live="polite"></p>
+            </div>
+          </article>
         </aside>
         <div class="map-area">
           <div class="map" id="map" aria-label="Map of incidents"></div>
