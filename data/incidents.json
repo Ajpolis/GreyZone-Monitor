@@ -1441,39 +1441,6 @@
     "droneConfirmedBy": "police"
   },
   {
-    "id": "de-2025-10-02-munich-airport",
-    "date": "2025-10-02",
-    "country": "Germany",
-    "place": "Munich Airport",
-    "lat": 48.354,
-    "lon": 11.786,
-    "locationPrecision": "town",
-    "type": "Drone disruption",
-    "status": "suspected",
-    "targetCategory": "Transport",
-    "target": "Airport",
-    "title": "Drone sightings halt Munich airport",
-    "summary": "Drone sightings grounded flights at Munich airport on two consecutive nights.",
-    "impact": "Dozens of flights disrupted; thousands of passengers affected",
-    "note": "Germany's chancellor said he assumed Russia was behind most of the drone flights.",
-    "history": [
-      {
-        "date": "2025-10",
-        "status": "suspected",
-        "reason": "Chancellor's statement"
-      }
-    ],
-    "sources": [
-      {
-        "label": "Reuters via AOL, Oct 2025",
-        "url": "https://www.aol.com/articles/germanys-merz-assume-russia-behind-184128204.html"
-      }
-    ],
-    "verified": true,
-    "lastChecked": "2026-09-25",
-    "droneConfirmedBy": null
-  },
-  {
     "id": "be-2025-10-02-elsenborn",
     "date": "2025-10-02",
     "country": "Belgium",

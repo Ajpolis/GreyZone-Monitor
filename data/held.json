@@ -49,5 +49,22 @@
       }
     ],
     "lastChecked": "2026-09-25"
+  },
+  {
+    "id": "de-2025-10-02-munich-airport",
+    "date": "2025-10-02",
+    "country": "Germany",
+    "place": "Munich Airport",
+    "lat": 48.354,
+    "lon": 11.786,
+    "type": "Drone disruption",
+    "holdReason": "No official confirmation on record that drones were present; moved from the map until police, the military, the airport operator or air traffic control confirms",
+    "sources": [
+      {
+        "label": "Reuters via AOL, Oct 2025",
+        "url": "https://www.aol.com/articles/germanys-merz-assume-russia-behind-184128204.html"
+      }
+    ],
+    "lastChecked": "2026-09-25"
   }
 ]
