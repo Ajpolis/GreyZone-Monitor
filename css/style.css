@@ -347,6 +347,119 @@ a { color: var(--link); text-underline-offset: 2px; }
   min-height: 0;
 }
 
+/* Incident record (replaces the list when an incident is selected) */
+
+.list-view[hidden],
+.record[hidden] { display: none; }
+
+.back-button,
+.copy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--link);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.back-button { margin: 16px 20px 0; }
+.copy-link { flex: none; white-space: nowrap; }
+.back-button::before { content: "\2190"; }
+
+.record-body { padding: 16px 20px 24px; }
+.record-body h3 {
+  margin: 20px 0 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.record-body p { margin: 0; }
+
+.withdrawn-banner {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--muted);
+  border-left-width: 4px;
+  border-radius: 6px;
+}
+.withdrawn-banner[hidden] { display: none; }
+.withdrawn-title { font-weight: 600; }
+
+.grade-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--signal-soft);
+  border-radius: 999px;
+}
+
+.record-title {
+  margin: 12px 0 6px;
+  font-size: 26px;
+}
+/* The headline takes focus only so screen readers start there; it is not a control. */
+.record-title:focus,
+.record-title:focus-visible { outline: none; }
+
+.record-where { color: var(--muted); }
+
+.fact-box {
+  margin: 16px 0 0;
+  padding: 4px 14px;
+  background: color-mix(in srgb, var(--ink) 6%, var(--surface));
+  border-radius: 6px;
+}
+.fact-box div {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+.fact-box div:first-child { border-top: 0; }
+.fact-box dt { color: var(--muted); font-size: 14px; }
+.fact-box dd { margin: 0; }
+
+.grade-history { list-style: none; margin: 0; padding: 0; }
+.grade-history li {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 12px;
+  padding: 6px 0;
+  border-top: 1px solid var(--line);
+}
+.grade-history li:first-child { border-top: 0; }
+.grade-history time { color: var(--muted); font-size: 14px; }
+.grade-history strong { font-weight: 600; }
+
+.record-sources { margin: 0; padding-left: 1.1em; }
+.record-sources li { margin-bottom: 4px; }
+.record-sources a { display: inline-block; padding: 4px 0; }
+
+.record-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.last-checked { color: var(--muted); font-size: 14px; }
+.copy-status { margin-top: 6px; font-size: 14px; color: var(--muted); }
+
 /* Map */
 
 .map {

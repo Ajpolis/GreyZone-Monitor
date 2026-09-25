@@ -40,6 +40,8 @@ function markerSvg(kind) {
 }
 
 const mapState = { map: null, markers: new Map(), selectedId: null };
+let allIncidents = [];
+const incidentsById = new Map();
 
 function setUpMap(incidents) {
   const map = L.map("map", {
@@ -77,7 +79,7 @@ function setUpMap(incidents) {
       title: label,
       riseOnHover: true,
     });
-    marker.on("click", () => selectIncident(incident.id));
+    marker.on("click", () => navigateTo(incident.id));
     // Leaflet rebuilds the marker element each time it is added to the map.
     marker.on("add", () => {
       const el = marker.getElement();
@@ -87,7 +89,7 @@ function setUpMap(incidents) {
       el.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          selectIncident(incident.id);
+          navigateTo(incident.id);
         }
       });
     });
@@ -101,20 +103,139 @@ function incidentLabel(incident) {
     (incident.type === "Foiled plot" ? "Foiled plot, " : "") + GRADE_NAMES[incident.status];
 }
 
-// Step 5 opens the record here; for now selection marks the dot and the list entry.
-function selectIncident(id, { pan = false } = {}) {
+function markSelected(id) {
   if (mapState.selectedId) {
     mapState.markers.get(mapState.selectedId)?.getElement()?.classList.remove("is-selected");
   }
   mapState.selectedId = id;
-  const marker = mapState.markers.get(id);
-  marker?.getElement()?.classList.add("is-selected");
-  if (pan && marker) mapState.map.panInside(marker.getLatLng(), { padding: [60, 60] });
+  mapState.markers.get(id)?.getElement()?.classList.add("is-selected");
   for (const item of document.querySelectorAll(".incident-item")) {
     if (item.dataset.id === id) item.setAttribute("aria-current", "true");
     else item.removeAttribute("aria-current");
   }
   document.getElementById("map-hint").hidden = Boolean(id);
+}
+
+// Each incident has its own link, /#<id>. Selecting an incident adds it to the
+// browser history, so Back returns to the list.
+function navigateTo(id) {
+  const base = `${location.pathname}${location.search}`;
+  history.pushState(null, "", id ? `${base}#${id}` : base);
+  route();
+}
+
+function route({ fromLink = false } = {}) {
+  const id = decodeURIComponent(location.hash.slice(1));
+  const incident = incidentsById.get(id);
+  if (incident) {
+    if (incident.id !== mapState.selectedId || document.getElementById("record").hidden) {
+      openRecord(incident);
+      if (fromLink) revealExplorer();
+    }
+  } else if (mapState.selectedId) {
+    closeRecord();
+  }
+}
+
+// A link from elsewhere on the page (such as Latest changes) scrolls the map back into view.
+function revealExplorer() {
+  const explorer = document.querySelector(".explorer");
+  if (explorer.getBoundingClientRect().top < 0) explorer.scrollIntoView({ block: "start" });
+}
+
+function openRecord(incident) {
+  markSelected(incident.id);
+  applyFilters(allIncidents);
+  const marker = mapState.markers.get(incident.id);
+  if (marker) mapState.map.panInside(marker.getLatLng(), { padding: [60, 60] });
+
+  renderRecord(incident);
+  document.getElementById("list-view").hidden = true;
+  document.getElementById("record").hidden = false;
+  document.getElementById("rail").scrollTop = 0;
+  document.getElementById("record-title").focus({ preventScroll: true });
+}
+
+function closeRecord() {
+  const id = mapState.selectedId;
+  markSelected(null);
+  document.getElementById("record").hidden = true;
+  document.getElementById("list-view").hidden = false;
+  applyFilters(allIncidents);
+  // Return keyboard focus to the entry that was open.
+  const item = document.querySelector(`.incident-item[data-id="${CSS.escape(id)}"]`);
+  if (item) {
+    item.focus({ preventScroll: true });
+    item.scrollIntoView({ block: "nearest" });
+  }
+}
+
+function setText(id, text) {
+  document.getElementById(id).textContent = text;
+}
+
+function renderRecord(incident) {
+  const withdrawn = incident.status === "withdrawn";
+  document.getElementById("record-withdrawn").hidden = !withdrawn;
+  setText("record-withdrawn-reason", withdrawn ? `${incident.history.at(-1).reason}.` : "");
+
+  document.getElementById("record-marker").innerHTML = markerSvg(markerKind(incident));
+  setText("record-grade", GRADE_NAMES[incident.status]);
+  setText("record-title", incident.title);
+  const where = document.getElementById("record-where");
+  where.textContent = `${incident.place}, ${incident.country}. ${formatDate(incident.date)}.`;
+  if (incident.locationPrecision === "approximate") {
+    where.append(document.createElement("br"), "Location is approximate.");
+  }
+
+  setText("record-type", incident.type);
+  setText("record-target", `${incident.targetCategory}: ${incident.target}`);
+  setText("record-impact", incident.impact);
+  setText("record-summary", incident.summary);
+  setText("record-note", incident.note);
+
+  document.getElementById("record-history").replaceChildren(...incident.history.map((h) => {
+    const li = document.createElement("li");
+    const time = document.createElement("time");
+    time.dateTime = h.date;
+    time.textContent = formatDate(h.date);
+    const text = document.createElement("span");
+    const grade = document.createElement("strong");
+    grade.textContent = GRADE_NAMES[h.status];
+    text.append(grade, `: ${h.reason}`);
+    li.append(time, text);
+    return li;
+  }));
+
+  document.getElementById("record-sources").replaceChildren(...incident.sources.map((source) => {
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = source.url;
+    link.textContent = source.label;
+    li.append(link);
+    return li;
+  }));
+
+  setText("record-checked", `Last checked ${formatDate(incident.lastChecked)}`);
+  setText("copy-status", "");
+}
+
+async function copyLink() {
+  const url = `${location.origin}${location.pathname}#${mapState.selectedId}`;
+  try {
+    await navigator.clipboard.writeText(url);
+    setText("copy-status", "Link copied.");
+  } catch {
+    setText("copy-status", `Copy this link: ${url}`);
+  }
+}
+
+function setUpRecord() {
+  document.getElementById("back-button").addEventListener("click", () => navigateTo(null));
+  document.getElementById("copy-link").addEventListener("click", copyLink);
+  // Browsers fire one or both of these for Back, Forward and #links.
+  window.addEventListener("popstate", () => route({ fromLink: true }));
+  window.addEventListener("hashchange", () => route({ fromLink: true }));
 }
 
 // Filters. They live in the web address so a filtered view can be shared.
@@ -265,11 +386,11 @@ function applyFilters(incidents) {
   document.getElementById("foiled-count").textContent =
     incidents.filter((e) => e.type === "Foiled plot" && matches(e, { ignoreFoiled: true })).length;
 
+  // The open incident keeps its dot even if the filters would hide it.
   for (const [id, marker] of mapState.markers) {
-    if (shownIds.has(id)) marker.addTo(mapState.map);
+    if (shownIds.has(id) || id === mapState.selectedId) marker.addTo(mapState.map);
     else marker.remove();
   }
-  if (mapState.selectedId && !shownIds.has(mapState.selectedId)) selectIncident(null);
 
   document.getElementById("result-count").textContent = `Showing ${shown.length} of ${incidents.length}`;
   document.getElementById("no-results").hidden = shown.length > 0;
@@ -302,7 +423,7 @@ function renderList(shown) {
     grade.className = "visually-hidden";
     grade.textContent = `. ${GRADE_NAMES[incident.status]}`;
     button.querySelector(".incident-type").append(incident.type, grade);
-    button.addEventListener("click", () => selectIncident(incident.id, { pan: true }));
+    button.addEventListener("click", () => navigateTo(incident.id));
     li.append(button);
     return li;
   }));
@@ -363,9 +484,13 @@ async function main() {
     const response = await fetch("data/incidents.json");
     if (!response.ok) throw new Error(response.statusText);
     const incidents = await response.json();
+    allIncidents = incidents;
+    for (const incident of incidents) incidentsById.set(incident.id, incident);
     showTotals(incidents);
     setUpMap(incidents);
     setUpFilters(incidents);
+    setUpRecord();
+    route();
     showLatestChanges(incidents);
   } catch (err) {
     document.getElementById("intro-summary").textContent = "The incident data could not be loaded.";
