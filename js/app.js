@@ -8,8 +8,7 @@ const GRADE_NAMES = {
   withdrawn: "Withdrawn",
 };
 
-const MONTHS = ["January", "February", "March", "April", "May", "June", "July",
-  "August", "September", "October", "November", "December"];
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // Dates can be YYYY, YYYY-MM or YYYY-MM-DD.
 function formatDate(value) {
@@ -217,7 +216,7 @@ function groupMarker(members) {
   const marker = L.marker(bounds.getCenter(), {
     icon: L.divIcon({
       className: "gz-group",
-      html: `<span class="gz-group-count" style="--size:${count >= 10 ? 34 : 28}px">${count}</span>`,
+      html: `<span class="gz-group-count" style="--size:${count >= 10 ? 26 : 22}px">${count}</span>`,
       iconSize: [44, 44],
     }),
     title: label,
@@ -330,7 +329,7 @@ function renderRecord(incident) {
   setText("record-grade", GRADE_NAMES[incident.status]);
   setText("record-title", incident.title);
   const where = document.getElementById("record-where");
-  where.textContent = `${incident.place}, ${incident.country}. ${formatDate(incident.date)}.`;
+  where.textContent = `${incident.place}, ${incident.country}. ${formatDate(incident.date)}`;
   if (incident.locationPrecision === "approximate") {
     where.append(document.createElement("br"), "Location is approximate.");
   }
@@ -341,16 +340,14 @@ function renderRecord(incident) {
   setText("record-summary", incident.summary);
   setText("record-note", incident.note);
 
+  // One line per change, e.g. "May 2025: attributed, government statement".
+  const lowerFirst = (text) => text.charAt(0).toLowerCase() + text.slice(1);
   document.getElementById("record-history").replaceChildren(...incident.history.map((h) => {
     const li = document.createElement("li");
     const time = document.createElement("time");
     time.dateTime = h.date;
     time.textContent = formatDate(h.date);
-    const text = document.createElement("span");
-    const grade = document.createElement("strong");
-    grade.textContent = GRADE_NAMES[h.status];
-    text.append(grade, `: ${h.reason}`);
-    li.append(time, text);
+    li.append(time, `: ${GRADE_NAMES[h.status].toLowerCase()}, ${lowerFirst(h.reason)}`);
     return li;
   }));
 
@@ -386,7 +383,7 @@ function setTab(name) {
     tab.tabIndex = selected ? 0 : -1;
   }
   // Leaflet must re-measure a map that was hidden.
-  if (name === "map") mapState.map.invalidateSize();
+  if (name === "map") mapState.map?.invalidateSize();
 }
 
 function setUpTabs() {
@@ -443,7 +440,6 @@ function setUpRecord() {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && mapState.selectedId) navigateTo(null);
   });
-  setUpTabs();
   setUpSheetDrag();
   document.getElementById("copy-link").addEventListener("click", copyLink);
   // Browsers fire one or both of these for Back, Forward and #links.
@@ -521,7 +517,7 @@ function fillSelect(id, values) {
 }
 
 function syncControls() {
-  for (const button of document.querySelectorAll(".grade-toggle")) {
+  for (const button of document.querySelectorAll(".grade-toggle[data-grade]")) {
     button.setAttribute("aria-pressed", String(filters.grades.has(button.dataset.grade)));
   }
   document.getElementById("foiled-toggle").setAttribute("aria-pressed", String(filters.foiled));
@@ -544,6 +540,7 @@ function setUpFilters(incidents) {
   const morePanel = document.getElementById("more-filters");
   const setMoreOpen = (open) => {
     moreButton.setAttribute("aria-expanded", String(open));
+    moreButton.textContent = open ? "Fewer filters" : "More filters: type, country, year";
     morePanel.hidden = !open;
   };
   setMoreOpen(Boolean(filters.type || filters.country || filters.year));
@@ -554,7 +551,7 @@ function setUpFilters(incidents) {
     applyFilters(incidents);
   };
 
-  for (const button of document.querySelectorAll(".grade-toggle")) {
+  for (const button of document.querySelectorAll(".grade-toggle[data-grade]")) {
     button.addEventListener("click", () => {
       const grade = button.dataset.grade;
       if (filters.grades.has(grade)) filters.grades.delete(grade);
@@ -578,12 +575,14 @@ function setUpFilters(incidents) {
       update();
     });
   }
-  document.getElementById("clear-filters").addEventListener("click", () => {
+  const clearAll = () => {
     resetFilters();
     syncControls();
     update();
     document.getElementById("search").focus();
-  });
+  };
+  document.getElementById("clear-filters").addEventListener("click", clearAll);
+  document.getElementById("clear-filters-link").addEventListener("click", clearAll);
 
   applyFilters(incidents);
 }
@@ -592,7 +591,7 @@ function applyFilters(incidents) {
   const shown = incidents.filter((e) => matches(e));
   const shownIds = new Set(shown.map((e) => e.id));
 
-  for (const button of document.querySelectorAll(".grade-toggle")) {
+  for (const button of document.querySelectorAll(".grade-toggle[data-grade]")) {
     const count = incidents.filter((e) => e.status === button.dataset.grade && matches(e, { ignoreGrade: true })).length;
     button.querySelector(".grade-toggle-count").textContent = count;
   }
@@ -612,6 +611,7 @@ function applyFilters(incidents) {
 function renderList(shown) {
   const newestFirst = [...shown].sort((a, b) => b.date.localeCompare(a.date));
   const list = document.getElementById("incident-list");
+  list.removeAttribute("aria-busy");
   list.replaceChildren(...newestFirst.map((incident) => {
     const li = document.createElement("li");
     const button = document.createElement("button");
@@ -649,11 +649,12 @@ function showLegend() {
 
 function showTotals(incidents) {
   for (const dd of document.querySelectorAll("#totals dd")) {
-    dd.textContent = incidents.filter((e) => e.status === dd.dataset.grade).length;
+    const grade = dd.dataset.grade;
+    dd.textContent = grade === "all" ? incidents.length : incidents.filter((e) => e.status === grade).length;
   }
-  const updated = incidents.map((e) => e.lastChecked).sort().at(-1);
-  document.getElementById("intro-summary").textContent =
-    `${incidents.length} incidents since Feb 2022. Updated ${formatDate(updated)}.`;
+  const updated = formatDate(incidents.map((e) => e.lastChecked).sort().at(-1));
+  setText("intro-updated", `Updated ${updated}.`);
+  setText("intro-summary", `${incidents.length} incidents since Feb 2022. Updated ${updated}.`);
 }
 
 // The most recent additions and regrades, taken from each entry's history.
@@ -681,6 +682,8 @@ function showLatestChanges(incidents, count = 5) {
 
 async function main() {
   showLegend();
+  // Tabs work straight away, even while the data is still loading.
+  setUpTabs();
   try {
     const response = await fetch("data/incidents.json");
     if (!response.ok) throw new Error(response.statusText);
@@ -694,7 +697,9 @@ async function main() {
     route();
     showLatestChanges(incidents);
   } catch (err) {
-    document.getElementById("intro-summary").textContent = "The incident data could not be loaded.";
+    setText("intro-summary", "The incident data could not be loaded. Try reloading the page.");
+    setText("intro-updated", "The incident data could not be loaded. Try reloading the page.");
+    setText("result-count", "");
     console.error(err);
   }
 }
