@@ -45,7 +45,35 @@
     <section class="wrap explorer-wrap" aria-label="Incident map and list">
       <div class="explorer">
         <aside class="rail" id="rail" aria-label="Filters and incident list">
-          <p class="placeholder">Filters and the incident list will go here.</p>
+          <div class="rail-controls">
+            <div class="grade-toggles" role="group" aria-label="Show grades">
+              <button type="button" class="grade-toggle" data-grade="attributed" aria-pressed="true"><span class="marker-icon" data-marker="attributed"></span><span class="grade-toggle-name">Attributed</span><span class="grade-toggle-count"></span></button>
+              <button type="button" class="grade-toggle" data-grade="suspected" aria-pressed="true"><span class="marker-icon" data-marker="suspected"></span><span class="grade-toggle-name">Suspected</span><span class="grade-toggle-count"></span></button>
+              <button type="button" class="grade-toggle" data-grade="unattributed" aria-pressed="true"><span class="marker-icon" data-marker="unattributed"></span><span class="grade-toggle-name">Unattributed</span><span class="grade-toggle-count"></span></button>
+              <button type="button" class="grade-toggle" data-grade="withdrawn" aria-pressed="true"><span class="marker-icon" data-marker="withdrawn"></span><span class="grade-toggle-name">Withdrawn</span><span class="grade-toggle-count"></span></button>
+            </div>
+            <button type="button" class="foiled-toggle" id="foiled-toggle" aria-pressed="false"><span class="marker-icon" data-marker="foiled"></span>Show foiled plots <span class="grade-toggle-count" id="foiled-count"></span></button>
+
+            <label class="visually-hidden" for="search">Search incidents</label>
+            <input class="search" id="search" type="search" placeholder="Search place, country, target…" autocomplete="off">
+
+            <button type="button" class="more-filters-button" id="more-filters-button" aria-expanded="false" aria-controls="more-filters">More filters: type, country, year</button>
+            <div class="more-filters" id="more-filters" hidden>
+              <label>Type <select id="filter-type"><option value="">All types</option></select></label>
+              <label>Country <select id="filter-country"><option value="">All countries</option></select></label>
+              <label>Year <select id="filter-year"><option value="">All years</option></select></label>
+            </div>
+
+            <p class="result-count" id="result-count" aria-live="polite"></p>
+          </div>
+
+          <ol class="incident-list" id="incident-list" aria-label="Incidents, newest first"></ol>
+
+          <div class="no-results" id="no-results" hidden>
+            <p class="no-results-title">No incidents match these filters</p>
+            <p>Try turning more grades back on, or removing a word from the search.</p>
+            <button type="button" class="clear-filters" id="clear-filters">Clear all filters</button>
+          </div>
         </aside>
         <div class="map-area">
           <div class="map" id="map" aria-label="Map of incidents"></div>
