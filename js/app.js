@@ -39,6 +39,8 @@ function markerSvg(kind) {
   return `<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">${MARKER_SVG[kind]}</svg>`;
 }
 
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 // Matches the phone breakpoint in style.css.
 const PHONE = window.matchMedia("(max-width: 760px)");
 
@@ -63,6 +65,10 @@ function setUpMap(incidents) {
     zoomControl: false,
     scrollWheelZoom: false,
     zoomSnap: 0.5,
+    // No sliding or zooming animations for people who have asked for less motion.
+    zoomAnimation: !REDUCED_MOTION,
+    fadeAnimation: !REDUCED_MOTION,
+    markerZoomAnimation: !REDUCED_MOTION,
     minZoom: 3,
     maxZoom: 12,
     worldCopyJump: false,
@@ -217,7 +223,7 @@ function groupMarker(members) {
     title: label,
     riseOnHover: true,
   });
-  const zoomIn = () => mapState.map.fitBounds(bounds, { padding: [60, 60], maxZoom: NO_GROUPING_ZOOM });
+  const zoomIn = () => mapState.map.fitBounds(bounds, { padding: [60, 60], maxZoom: NO_GROUPING_ZOOM, animate: !REDUCED_MOTION });
   marker.on("click", zoomIn);
   marker.on("add", () => {
     const el = marker.getElement();
@@ -276,7 +282,7 @@ function openRecord(incident) {
   markSelected(incident.id);
   applyFilters(allIncidents);
   const marker = mapState.markers.get(incident.id);
-  if (marker) mapState.map.panInside(marker.getLatLng(), { padding: [60, 60] });
+  if (marker) mapState.map.panInside(marker.getLatLng(), { padding: [60, 60], animate: !REDUCED_MOTION });
 
   renderRecord(incident);
   const record = document.getElementById("record");
@@ -431,6 +437,7 @@ function setUpSheetDrag() {
 }
 
 function setUpRecord() {
+  document.getElementById("skip-list").addEventListener("click", () => document.getElementById("map").focus());
   document.getElementById("back-button").addEventListener("click", () => navigateTo(null));
   document.getElementById("sheet-close").addEventListener("click", () => navigateTo(null));
   document.addEventListener("keydown", (event) => {
