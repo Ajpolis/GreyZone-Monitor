@@ -198,12 +198,121 @@ a { color: var(--link); text-underline-offset: 2px; }
 .map-area {
   position: relative;
   background: var(--sea);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 0;
 }
 
 .placeholder { color: var(--muted); margin: 0; }
+
+/* Map */
+
+.map {
+  position: absolute;
+  inset: 0;
+  background: var(--sea);
+  font-family: var(--font-body);
+}
+
+/* Greyscale tiles so the red markers are the loudest thing on screen. */
+.map .leaflet-tile-pane { filter: grayscale(1) contrast(0.9) brightness(1.04); }
+@media (prefers-color-scheme: dark) {
+  .map .leaflet-tile-pane { filter: grayscale(1) invert(1) brightness(0.72) contrast(0.9); }
+}
+
+.map .leaflet-control-attribution {
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+  color: var(--muted);
+  font-size: 12px;
+}
+.map .leaflet-control-attribution a { color: var(--link); }
+
+.map-hint,
+.map-controls,
+.map-legend {
+  position: absolute;
+  z-index: 500;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.map-hint {
+  top: 12px;
+  left: 12px;
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.map-hint[hidden] { display: none; }
+
+.map-controls {
+  top: 12px;
+  right: 12px;
+  display: flex;
+  overflow: hidden;
+}
+
+.map-button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink);
+  background: var(--surface);
+  border: 0;
+  border-left: 1px solid var(--line);
+  cursor: pointer;
+}
+.map-button:first-child { border-left: 0; }
+.map-button-text { font-size: 14px; font-weight: 500; }
+.map-button:focus-visible { outline-offset: -3px; }
+
+.map-legend {
+  bottom: 12px;
+  left: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+.legend-list {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 4px 14px;
+}
+.legend-list li { display: flex; align-items: center; gap: 6px; }
+.legend-note { margin: 0; color: var(--muted); }
+
+/* Markers: the shape carries the grade, so it reads without colour. */
+
+.marker-icon { display: inline-flex; width: 16px; height: 16px; flex: none; }
+.marker-icon svg,
+.gz-marker svg { width: 16px; height: 16px; overflow: visible; }
+
+.gz-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.gz-marker:focus-visible { outline: 2px solid var(--link); outline-offset: 0; }
+.gz-marker.is-selected::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+.mk-fill { fill: var(--signal); stroke: var(--surface); stroke-width: 1.5; }
+.mk-ring { fill: var(--surface); stroke: var(--signal); }
+.mk-dot { fill: var(--signal); }
+.mk-withdrawn { fill: var(--surface); stroke: var(--muted); stroke-width: 2; }
+.mk-slash { stroke: var(--muted); stroke-width: 2; stroke-linecap: round; }
 
 /* Below the map */
 
@@ -273,7 +382,15 @@ a { color: var(--link); text-underline-offset: 2px; }
     height: auto;
   }
   .rail { border-right: 0; border-bottom: 1px solid var(--line); }
-  .map-area { height: 300px; }
+  .map { position: relative; height: 300px; }
+  .map-hint { display: none; }
+  .map-legend {
+    position: static;
+    border: 0;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+  }
+  .legend-list { grid-template-columns: repeat(2, auto); justify-content: start; }
 
   .below-map { grid-template-columns: 1fr; gap: 28px; padding-top: 28px; }
 }

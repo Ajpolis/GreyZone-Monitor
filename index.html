@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -46,8 +47,24 @@
         <aside class="rail" id="rail" aria-label="Filters and incident list">
           <p class="placeholder">Filters and the incident list will go here.</p>
         </aside>
-        <div class="map-area" id="map">
-          <p class="placeholder">The map will go here.</p>
+        <div class="map-area">
+          <div class="map" id="map" aria-label="Map of incidents"></div>
+          <p class="map-hint" id="map-hint">Select a dot or a list entry to open its record</p>
+          <div class="map-controls">
+            <button type="button" class="map-button" id="zoom-in" aria-label="Zoom in">+</button>
+            <button type="button" class="map-button" id="zoom-out" aria-label="Zoom out">&minus;</button>
+            <button type="button" class="map-button map-button-text" id="zoom-europe">Show all of Europe</button>
+          </div>
+          <div class="map-legend" id="map-legend">
+            <ul class="legend-list">
+              <li><span class="marker-icon" data-marker="attributed"></span>Attributed</li>
+              <li><span class="marker-icon" data-marker="suspected"></span>Suspected</li>
+              <li><span class="marker-icon" data-marker="unattributed"></span>Unattributed</li>
+              <li><span class="marker-icon" data-marker="withdrawn"></span>Withdrawn</li>
+              <li><span class="marker-icon" data-marker="foiled"></span>Foiled plot</li>
+            </ul>
+            <p class="legend-note">Dots sit at the nearest town</p>
+          </div>
         </div>
       </div>
     </section>
@@ -91,6 +108,7 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
