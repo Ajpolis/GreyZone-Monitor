@@ -21,7 +21,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="wordmark" href="./">GreyZone Monitor</a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       <nav id="site-nav" class="site-nav" aria-label="Main">
         <a href="./" aria-current="page">Map</a>
         <a href="method.html">Method</a>
@@ -35,14 +35,15 @@
     <section class="wrap intro">
       <div class="intro-text">
         <h1>Suspected Russian sabotage in Europe</h1>
-        <p class="intro-desc">Arson, explosives, cable damage, drones and foiled plots since February 2022, each graded by how strong the evidence of Russian involvement is.</p>
-        <p class="intro-summary" id="intro-summary"></p>
+        <p class="intro-desc">Incidents since February 2022, each graded by how strong the evidence of Russian involvement is.<br><span id="intro-updated">Loading incidents</span></p>
+        <p class="intro-summary" id="intro-summary">Loading incidents</p>
       </div>
-      <dl class="totals" id="totals" aria-label="Incidents by grade">
-        <div><dt>Attributed</dt><dd data-grade="attributed">–</dd></div>
-        <div><dt>Suspected</dt><dd data-grade="suspected">–</dd></div>
-        <div><dt>Unattributed</dt><dd data-grade="unattributed">–</dd></div>
-        <div><dt>Withdrawn</dt><dd data-grade="withdrawn">–</dd></div>
+      <dl class="totals" id="totals" aria-label="Incident totals">
+        <div><dd data-grade="all">–</dd><dt>incidents</dt></div>
+        <div><dd data-grade="attributed">–</dd><dt>attributed</dt></div>
+        <div><dd data-grade="suspected">–</dd><dt>suspected</dt></div>
+        <div><dd data-grade="unattributed">–</dd><dt>unattributed</dt></div>
+        <div><dd data-grade="withdrawn">–</dd><dt>withdrawn</dt></div>
       </dl>
     </section>
 
@@ -55,33 +56,41 @@
         <aside class="rail" id="rail" aria-label="Filters and incident list">
           <div class="list-view" id="list-view" role="tabpanel" aria-labelledby="tab-list">
           <div class="rail-controls">
-            <div class="grade-toggles" role="group" aria-label="Show grades">
+            <div class="grade-toggles" role="group" aria-label="Show grades and foiled plots">
               <button type="button" class="grade-toggle" data-grade="attributed" aria-pressed="true"><span class="marker-icon" data-marker="attributed"></span><span class="grade-toggle-name">Attributed</span><span class="grade-toggle-count"></span></button>
               <button type="button" class="grade-toggle" data-grade="suspected" aria-pressed="true"><span class="marker-icon" data-marker="suspected"></span><span class="grade-toggle-name">Suspected</span><span class="grade-toggle-count"></span></button>
               <button type="button" class="grade-toggle" data-grade="unattributed" aria-pressed="true"><span class="marker-icon" data-marker="unattributed"></span><span class="grade-toggle-name">Unattributed</span><span class="grade-toggle-count"></span></button>
               <button type="button" class="grade-toggle" data-grade="withdrawn" aria-pressed="true"><span class="marker-icon" data-marker="withdrawn"></span><span class="grade-toggle-name">Withdrawn</span><span class="grade-toggle-count"></span></button>
+              <button type="button" class="grade-toggle foiled-toggle" id="foiled-toggle" aria-pressed="false"><span class="marker-icon" data-marker="foiled"></span><span class="grade-toggle-name">Show foiled plots</span><span class="grade-toggle-count" id="foiled-count"></span></button>
             </div>
-            <button type="button" class="foiled-toggle" id="foiled-toggle" aria-pressed="false"><span class="marker-icon" data-marker="foiled"></span>Show foiled plots <span class="grade-toggle-count" id="foiled-count"></span></button>
 
-            <label class="visually-hidden" for="search">Search incidents</label>
-            <input class="search" id="search" type="search" placeholder="Search place, country, target…" autocomplete="off">
+            <label class="field-label" for="search">Search</label>
+            <input class="search" id="search" type="search" placeholder="Place, target or keyword" autocomplete="off">
 
-            <button type="button" class="more-filters-button" id="more-filters-button" aria-expanded="false" aria-controls="more-filters">More filters: type, country, year</button>
+            <div class="filter-row">
+              <button type="button" class="more-filters-button" id="more-filters-button" aria-expanded="false" aria-controls="more-filters">More filters: type, country, year</button>
+              <p class="result-count" id="result-count" aria-live="polite">Loading</p>
+            </div>
             <div class="more-filters" id="more-filters" hidden>
-              <label>Type <select id="filter-type"><option value="">All types</option></select></label>
-              <label>Country <select id="filter-country"><option value="">All countries</option></select></label>
-              <label>Year <select id="filter-year"><option value="">All years</option></select></label>
+              <div class="field field-wide"><label class="field-label" for="filter-type">Type</label><select id="filter-type"><option value="">All types</option></select></div>
+              <div class="field"><label class="field-label" for="filter-country">Country</label><select id="filter-country"><option value="">All countries</option></select></div>
+              <div class="field"><label class="field-label" for="filter-year">Year</label><select id="filter-year"><option value="">All years</option></select></div>
+              <button type="button" class="clear-link" id="clear-filters-link">Clear all filters</button>
             </div>
-
-            <p class="result-count" id="result-count" aria-live="polite"></p>
           </div>
 
           <button type="button" class="skip-list" id="skip-list">Skip to the map</button>
-          <ol class="incident-list" id="incident-list" aria-label="Incidents, newest first"></ol>
+          <ol class="incident-list" id="incident-list" aria-label="Incidents, newest first" aria-busy="true">
+            <li class="skeleton" aria-hidden="true"><span></span><span></span></li>
+            <li class="skeleton" aria-hidden="true"><span></span><span></span></li>
+            <li class="skeleton" aria-hidden="true"><span></span><span></span></li>
+            <li class="skeleton" aria-hidden="true"><span></span><span></span></li>
+            <li class="skeleton" aria-hidden="true"><span></span><span></span></li>
+          </ol>
 
           <div class="no-results" id="no-results" hidden>
-            <p class="no-results-title">No incidents match these filters</p>
-            <p>Try turning more grades back on, or removing a word from the search.</p>
+            <h2 class="no-results-title">No incidents match these filters</h2>
+            <p>Try a broader search, or turn a grade back on. Coverage is limited to incidents reported in open sources.</p>
             <button type="button" class="clear-filters" id="clear-filters">Clear all filters</button>
           </div>
           </div>
@@ -89,9 +98,9 @@
           <article class="record" id="record" hidden aria-labelledby="record-title">
             <div class="sheet-header" id="sheet-header">
               <span class="sheet-handle" aria-hidden="true"></span>
-              <button type="button" class="sheet-close" id="sheet-close" aria-label="Close record">&times;</button>
+              <button type="button" class="sheet-close" id="sheet-close" aria-label="Close record"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
             </div>
-            <button type="button" class="back-button" id="back-button">All incidents</button>
+            <button type="button" class="back-button" id="back-button"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M10 3.5 5.5 8l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>All incidents</button>
             <div class="record-body">
               <div class="withdrawn-banner" id="record-withdrawn" hidden>
                 <p class="withdrawn-title">This entry has been withdrawn</p>
@@ -110,9 +119,9 @@
               <h3>Attribution</h3>
               <p id="record-note"></p>
               <h3>Grade history</h3>
-              <ol class="grade-history" id="record-history"></ol>
+              <ul class="grade-history" id="record-history"></ul>
               <h3>Sources</h3>
-              <ul class="record-sources" id="record-sources"></ul>
+              <ul class="record-sources" id="record-sources" role="list"></ul>
               <div class="record-footer">
                 <p class="last-checked" id="record-checked"></p>
                 <button type="button" class="copy-link" id="copy-link">Copy link</button>
@@ -125,9 +134,9 @@
           <div class="map" id="map" aria-label="Map of incidents"></div>
           <p class="map-hint" id="map-hint">Select a dot or a list entry to open its record</p>
           <div class="map-controls">
-            <button type="button" class="map-button" id="zoom-in" aria-label="Zoom in">+</button>
-            <button type="button" class="map-button" id="zoom-out" aria-label="Zoom out">&minus;</button>
-            <button type="button" class="map-button map-button-text" id="zoom-europe">Show all of Europe</button>
+            <button type="button" class="map-button" id="zoom-in" aria-label="Zoom in" title="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+            <button type="button" class="map-button" id="zoom-out" aria-label="Zoom out" title="Zoom out"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+            <button type="button" class="map-button" id="zoom-europe" aria-label="Show all of Europe" title="Show all of Europe"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
           <div class="map-legend" id="map-legend">
             <ul class="legend-list">
@@ -146,26 +155,13 @@
     <section class="wrap below-map">
       <div class="col">
         <h2>How grading works</h2>
-        <dl class="grades">
-          <dt>Attributed</dt>
-          <dd>A government, prosecutor or court has publicly said Russia or its proxies were behind it.</dd>
-          <dt>Suspected</dt>
-          <dd>Officials link it to Russia, or decline to rule Russia out, without a formal attribution.</dd>
-          <dt>Unattributed</dt>
-          <dd>Deliberate sabotage fitting a pattern officials have linked to Russia, with no official link for this incident.</dd>
-          <dt>Withdrawn</dt>
-          <dd>Once treated as suspected sabotage, later ruled out or not confirmed. Kept, with the reason.</dd>
-        </dl>
-        <p><a href="method.html">Read the full method</a></p>
+        <p>Attributed: a government, prosecutor or court has publicly said Russia or its proxies were behind it. Suspected: officials link it to Russia, or decline to rule Russia out, without a formal attribution. Unattributed: deliberate sabotage fitting a pattern officials have linked to Russia, with no official link for this incident. Withdrawn: once treated as suspected sabotage, later ruled out or not confirmed. Kept, with the reason.</p>
+        <p><a href="method.html#grading">Read more</a></p>
       </div>
       <div class="col">
         <h2>About the data</h2>
-        <ul class="plain-list">
-          <li>Built from open sources: official statements, court records and news reports.</li>
-          <li>Every entry is checked by hand before it is published.</li>
-          <li>Dots sit at the nearest town, not the exact site.</li>
-          <li>No individuals are named, including people charged or convicted.</li>
-        </ul>
+        <p>Built from open sources: official statements, court records and news reports. Every entry is checked by hand before it is published. Dots sit at the nearest town, not the exact site. No individuals are named, including people charged or convicted.</p>
+        <p><a href="method.html">Read more</a></p>
       </div>
       <div class="col">
         <h2>Latest changes</h2>
@@ -175,11 +171,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p>Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</p>
-      <p>This is an independent log built from open sources. Grades reflect what officials have said publicly and can change as investigations continue.</p>
-      <p>Corrections and contact: [contact address]</p>
-    </div>
+    <p class="wrap footer-inner">Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>. An independent log built from open sources; grades reflect what officials have said publicly and can change as investigations continue. Contact: [contact address]</p>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
