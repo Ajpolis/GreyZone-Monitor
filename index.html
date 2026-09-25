@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GreyZone Monitor</title>
+  <meta name="description" content="A map of suspected Russian sabotage in Europe since February 2022, with every incident graded by the strength of the evidence.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="./">GreyZone Monitor</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <a href="./" aria-current="page">Map</a>
+        <a href="method.html">Method</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="wrap intro">
+      <div class="intro-text">
+        <h1>Suspected Russian sabotage in Europe</h1>
+        <p class="intro-desc">Arson, explosives, cable damage, drones and foiled plots since February 2022, each graded by how strong the evidence of Russian involvement is.</p>
+        <p class="intro-summary" id="intro-summary"></p>
+      </div>
+      <dl class="totals" id="totals" aria-label="Incidents by grade">
+        <div><dt>Attributed</dt><dd data-grade="attributed">–</dd></div>
+        <div><dt>Suspected</dt><dd data-grade="suspected">–</dd></div>
+        <div><dt>Unattributed</dt><dd data-grade="unattributed">–</dd></div>
+        <div><dt>Withdrawn</dt><dd data-grade="withdrawn">–</dd></div>
+      </dl>
+    </section>
+
+    <section class="wrap explorer-wrap" aria-label="Incident map and list">
+      <div class="explorer">
+        <aside class="rail" id="rail" aria-label="Filters and incident list">
+          <p class="placeholder">Filters and the incident list will go here.</p>
+        </aside>
+        <div class="map-area" id="map">
+          <p class="placeholder">The map will go here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap below-map">
+      <div class="col">
+        <h2>How grading works</h2>
+        <dl class="grades">
+          <dt>Attributed</dt>
+          <dd>A government, prosecutor or court has publicly said Russia or its proxies were behind it.</dd>
+          <dt>Suspected</dt>
+          <dd>Officials link it to Russia, or decline to rule Russia out, without a formal attribution.</dd>
+          <dt>Unattributed</dt>
+          <dd>Deliberate sabotage fitting a pattern officials have linked to Russia, with no official link for this incident.</dd>
+          <dt>Withdrawn</dt>
+          <dd>Once treated as suspected sabotage, later ruled out or not confirmed. Kept, with the reason.</dd>
+        </dl>
+        <p><a href="method.html">Read the full method</a></p>
+      </div>
+      <div class="col">
+        <h2>About the data</h2>
+        <ul class="plain-list">
+          <li>Built from open sources: official statements, court records and news reports.</li>
+          <li>Every entry is checked by hand before it is published.</li>
+          <li>Dots sit at the nearest town, not the exact site.</li>
+          <li>No individuals are named, including people charged or convicted.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Latest changes</h2>
+        <ol class="changes" id="changes"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</p>
+      <p>This is an independent log built from open sources. Grades reflect what officials have said publicly and can change as investigations continue.</p>
+      <p>Corrections and contact: [contact address]</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
