@@ -25,8 +25,10 @@
   color-scheme: light;
 }
 
+/* Dark theme: follows the device setting unless the visitor has chosen
+   one with the header button (data-theme on <html>). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --page: #14191F;
     --surface: #1B222A;
     --ink: #E6EAEE;
@@ -39,6 +41,19 @@
     --link: #8DB6F0;
     color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --page: #14191F;
+  --surface: #1B222A;
+  --ink: #E6EAEE;
+  --muted: #A3ADB8;
+  --line: #313B46;
+  --sea: #1A2129;
+  --land: #2A333D;
+  --signal: #E8736C;
+  --signal-soft: #3A2527;
+  --link: #8DB6F0;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -97,7 +112,7 @@ a { color: var(--link); text-underline-offset: 2px; }
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
   min-height: var(--header-height);
 }
 
@@ -110,9 +125,28 @@ a { color: var(--link); text-underline-offset: 2px; }
   font-size: 22px;
   color: var(--ink);
   text-decoration: none;
+  margin-right: auto;
 }
 
-.site-nav { display: flex; gap: 8px; margin-right: -12px; }
+.site-nav { display: flex; gap: 8px; }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.theme-toggle svg { width: 16px; height: 16px; flex: none; }
 
 .site-nav a {
   display: inline-flex;
@@ -494,8 +528,9 @@ a { color: var(--link); text-underline-offset: 2px; }
 /* Greyscale tiles so the red markers are the loudest thing on screen. */
 .map .leaflet-tile-pane { filter: grayscale(1) contrast(0.9) brightness(1.04); }
 @media (prefers-color-scheme: dark) {
-  .map .leaflet-tile-pane { filter: grayscale(1) invert(1) brightness(0.72) contrast(0.9); }
+  :root:not([data-theme="light"]) .map .leaflet-tile-pane { filter: grayscale(1) invert(1) brightness(0.72) contrast(0.9); }
 }
+:root[data-theme="dark"] .map .leaflet-tile-pane { filter: grayscale(1) invert(1) brightness(0.72) contrast(0.9); }
 
 .map .leaflet-control-attribution {
   background: color-mix(in srgb, var(--surface) 85%, transparent);
@@ -693,12 +728,16 @@ a { color: var(--link); text-underline-offset: 2px; }
 @media (max-width: 760px) {
   :root { --gutter: 16px; }
 
-  .menu-button { display: inline-flex; align-items: center; }
+  .menu-button { display: inline-flex; align-items: center; order: 2; }
+  /* Icon only on phones, so the header stays on one line. */
+  .theme-toggle { order: 1; padding: 0; justify-content: center; }
+  .theme-toggle span { display: none; }
 
   .header-inner { flex-wrap: wrap; }
 
   .site-nav {
     display: none;
+    order: 3;
     flex-basis: 100%;
     flex-direction: column;
     gap: 0;
