@@ -42,7 +42,19 @@ function markerSvg(kind) {
 // Matches the phone breakpoint in style.css.
 const PHONE = window.matchMedia("(max-width: 760px)");
 
-const mapState = { map: null, markers: new Map(), selectedId: null };
+const mapState = {
+  map: null,
+  markers: new Map(),
+  selectedId: null,
+  visibleIds: new Set(),
+  groupLayer: null,
+};
+
+// Grouping: dots closer than this many pixels merge into a numbered circle.
+const GROUP_RADIUS = 30;
+// From this zoom level up, dots are never grouped; dots at the same town fan out instead.
+const NO_GROUPING_ZOOM = 9;
+const FAN_RADIUS = 14;
 let allIncidents = [];
 const incidentsById = new Map();
 
@@ -70,35 +82,149 @@ function setUpMap(incidents) {
   document.getElementById("zoom-out").addEventListener("click", () => map.zoomOut());
   document.getElementById("zoom-europe").addEventListener("click", () => map.fitBounds(EUROPE_BOUNDS));
 
-  // Markers are created once; applyFilters() adds and removes them.
+  // Markers are created once; drawMarkers() decides which are on the map.
   for (const incident of incidents) {
-    const label = incidentLabel(incident);
     const marker = L.marker([incident.lat, incident.lon], {
-      icon: L.divIcon({
-        className: "gz-marker",
-        html: markerSvg(markerKind(incident)),
-        iconSize: [36, 36],
-      }),
-      title: label,
+      icon: incidentIcon(incident, [0, 0]),
+      title: incidentLabel(incident),
       riseOnHover: true,
     });
+    marker.incident = incident;
+    marker.fanOffset = "0,0";
     marker.on("click", () => navigateTo(incident.id));
-    // Leaflet rebuilds the marker element each time it is added to the map.
-    marker.on("add", () => {
-      const el = marker.getElement();
-      el.setAttribute("aria-label", label);
-      el.classList.toggle("is-selected", mapState.selectedId === incident.id);
-      // Leaflet gives markers role="button", so Enter and Space must work too.
-      el.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          navigateTo(incident.id);
-        }
-      });
-    });
+    // Leaflet rebuilds the marker element when it is added or its icon changes.
+    marker.on("add", () => decorateMarker(marker));
     mapState.markers.set(incident.id, marker);
   }
+  mapState.groupLayer = L.layerGroup().addTo(map);
+  map.on("zoomend", drawMarkers);
   mapState.map = map;
+}
+
+function incidentIcon(incident, [dx, dy]) {
+  return L.divIcon({
+    className: "gz-marker",
+    html: markerSvg(markerKind(incident)),
+    iconSize: [36, 36],
+    iconAnchor: [18 - dx, 18 - dy],
+  });
+}
+
+function decorateMarker(marker) {
+  const el = marker.getElement();
+  if (!el || el.dataset.ready) return;
+  el.dataset.ready = "1";
+  el.setAttribute("aria-label", incidentLabel(marker.incident));
+  el.classList.toggle("is-selected", mapState.selectedId === marker.incident.id);
+  // Leaflet gives markers role="button", so Enter and Space must work too.
+  onActivate(el, () => navigateTo(marker.incident.id));
+}
+
+function onActivate(el, action) {
+  el.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      action();
+    }
+  });
+}
+
+// Puts the visible incidents on the map, merging dots that would overlap at
+// the current zoom into numbered circles. The open incident is never merged.
+function drawMarkers() {
+  const map = mapState.map;
+  if (!map) return;
+  const zoom = map.getZoom();
+  const items = [];
+  for (const id of mapState.visibleIds) {
+    const marker = mapState.markers.get(id);
+    items.push({ marker, point: map.project(marker.getLatLng(), zoom) });
+  }
+
+  const singles = [];
+  const groups = [];
+  if (zoom >= NO_GROUPING_ZOOM) {
+    singles.push(...items);
+  } else {
+    const used = new Set();
+    for (const item of items) {
+      if (used.has(item)) continue;
+      used.add(item);
+      if (item.marker.incident.id === mapState.selectedId) {
+        singles.push(item);
+        continue;
+      }
+      const members = [item];
+      for (const other of items) {
+        if (used.has(other) || other.marker.incident.id === mapState.selectedId) continue;
+        if (item.point.distanceTo(other.point) < GROUP_RADIUS) {
+          members.push(other);
+          used.add(other);
+        }
+      }
+      if (members.length === 1) singles.push(item);
+      else groups.push(members);
+    }
+  }
+
+  const singleSet = new Set(singles.map((item) => item.marker));
+  for (const marker of mapState.markers.values()) {
+    if (!singleSet.has(marker)) marker.remove();
+  }
+  placeSingles(singles, zoom >= NO_GROUPING_ZOOM);
+
+  mapState.groupLayer.clearLayers();
+  for (const members of groups) mapState.groupLayer.addLayer(groupMarker(members));
+}
+
+// Dots at the same spot sit in a small ring once grouping is off.
+function placeSingles(singles, fan) {
+  const bySpot = new Map();
+  for (const item of singles) {
+    const key = fan ? `${Math.round(item.point.x / 4)},${Math.round(item.point.y / 4)}` : item.marker.incident.id;
+    if (!bySpot.has(key)) bySpot.set(key, []);
+    bySpot.get(key).push(item.marker);
+  }
+  for (const markers of bySpot.values()) {
+    markers.forEach((marker, i) => {
+      let offset = [0, 0];
+      if (markers.length > 1) {
+        const angle = (2 * Math.PI * i) / markers.length - Math.PI / 2;
+        offset = [Math.round(FAN_RADIUS * Math.cos(angle)), Math.round(FAN_RADIUS * Math.sin(angle))];
+      }
+      const key = offset.join(",");
+      if (marker.fanOffset !== key) {
+        marker.fanOffset = key;
+        marker.setIcon(incidentIcon(marker.incident, offset));
+        decorateMarker(marker);
+      }
+      marker.addTo(mapState.map);
+    });
+  }
+}
+
+function groupMarker(members) {
+  const latlngs = members.map((item) => item.marker.getLatLng());
+  const bounds = L.latLngBounds(latlngs);
+  const count = members.length;
+  const label = `${count} incidents close together. Zoom in to see them.`;
+  const marker = L.marker(bounds.getCenter(), {
+    icon: L.divIcon({
+      className: "gz-group",
+      html: `<span class="gz-group-count" style="--size:${count >= 10 ? 34 : 28}px">${count}</span>`,
+      iconSize: [44, 44],
+    }),
+    title: label,
+    riseOnHover: true,
+  });
+  const zoomIn = () => mapState.map.fitBounds(bounds, { padding: [60, 60], maxZoom: NO_GROUPING_ZOOM });
+  marker.on("click", zoomIn);
+  marker.on("add", () => {
+    const el = marker.getElement();
+    el.setAttribute("aria-label", label);
+    onActivate(el, zoomIn);
+  });
+  return marker;
 }
 
 function incidentLabel(incident) {
@@ -179,7 +305,9 @@ function closeRecord() {
     item.focus({ preventScroll: true });
     item.scrollIntoView({ block: "nearest" });
   } else {
-    mapState.markers.get(id)?.getElement()?.focus({ preventScroll: true });
+    // The dot may now be inside a group; fall back to the map itself.
+    const el = mapState.markers.get(id)?.getElement() || document.getElementById("map");
+    el.focus({ preventScroll: true });
   }
 }
 
@@ -465,10 +593,9 @@ function applyFilters(incidents) {
     incidents.filter((e) => e.type === "Foiled plot" && matches(e, { ignoreFoiled: true })).length;
 
   // The open incident keeps its dot even if the filters would hide it.
-  for (const [id, marker] of mapState.markers) {
-    if (shownIds.has(id) || id === mapState.selectedId) marker.addTo(mapState.map);
-    else marker.remove();
-  }
+  if (mapState.selectedId) shownIds.add(mapState.selectedId);
+  mapState.visibleIds = shownIds;
+  drawMarkers();
 
   document.getElementById("result-count").textContent = `Showing ${shown.length} of ${incidents.length}`;
   document.getElementById("no-results").hidden = shown.length > 0;
