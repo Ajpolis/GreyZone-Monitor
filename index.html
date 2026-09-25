@@ -43,9 +43,13 @@
     </section>
 
     <section class="wrap explorer-wrap" aria-label="Incident map and list">
-      <div class="explorer">
+      <div class="view-tabs" role="tablist" aria-label="View">
+        <button type="button" role="tab" class="view-tab" id="tab-map" aria-selected="true" aria-controls="map-panel">Map</button>
+        <button type="button" role="tab" class="view-tab" id="tab-list" aria-selected="false" aria-controls="list-view" tabindex="-1">List</button>
+      </div>
+      <div class="explorer" id="explorer" data-tab="map">
         <aside class="rail" id="rail" aria-label="Filters and incident list">
-          <div class="list-view" id="list-view">
+          <div class="list-view" id="list-view" role="tabpanel" aria-labelledby="tab-list">
           <div class="rail-controls">
             <div class="grade-toggles" role="group" aria-label="Show grades">
               <button type="button" class="grade-toggle" data-grade="attributed" aria-pressed="true"><span class="marker-icon" data-marker="attributed"></span><span class="grade-toggle-name">Attributed</span><span class="grade-toggle-count"></span></button>
@@ -78,6 +82,10 @@
           </div>
 
           <article class="record" id="record" hidden aria-labelledby="record-title">
+            <div class="sheet-header" id="sheet-header">
+              <span class="sheet-handle" aria-hidden="true"></span>
+              <button type="button" class="sheet-close" id="sheet-close" aria-label="Close record">&times;</button>
+            </div>
             <button type="button" class="back-button" id="back-button">All incidents</button>
             <div class="record-body">
               <div class="withdrawn-banner" id="record-withdrawn" hidden>
@@ -108,7 +116,7 @@
             </div>
           </article>
         </aside>
-        <div class="map-area">
+        <div class="map-area" id="map-panel" role="tabpanel" aria-labelledby="tab-map">
           <div class="map" id="map" aria-label="Map of incidents"></div>
           <p class="map-hint" id="map-hint">Select a dot or a list entry to open its record</p>
           <div class="map-controls">

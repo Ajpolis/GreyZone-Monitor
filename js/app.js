@@ -39,6 +39,9 @@ function markerSvg(kind) {
   return `<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">${MARKER_SVG[kind]}</svg>`;
 }
 
+// Matches the phone breakpoint in style.css.
+const PHONE = window.matchMedia("(max-width: 760px)");
+
 const mapState = { map: null, markers: new Map(), selectedId: null };
 let allIncidents = [];
 const incidentsById = new Map();
@@ -150,23 +153,33 @@ function openRecord(incident) {
   if (marker) mapState.map.panInside(marker.getLatLng(), { padding: [60, 60] });
 
   renderRecord(incident);
-  document.getElementById("list-view").hidden = true;
-  document.getElementById("record").hidden = false;
+  const record = document.getElementById("record");
+  record.style.transform = "";
+  document.getElementById("rail").classList.add("is-record-open");
+  record.hidden = false;
+  record.scrollTop = 0;
   document.getElementById("rail").scrollTop = 0;
   document.getElementById("record-title").focus({ preventScroll: true });
+  // Phone Map tab: bring the map to the top so it stays visible above the sheet.
+  if (PHONE.matches && document.getElementById("explorer").dataset.tab === "map") {
+    document.getElementById("map-panel").scrollIntoView({ block: "start" });
+  }
 }
 
 function closeRecord() {
   const id = mapState.selectedId;
   markSelected(null);
   document.getElementById("record").hidden = true;
-  document.getElementById("list-view").hidden = false;
+  document.getElementById("rail").classList.remove("is-record-open");
   applyFilters(allIncidents);
-  // Return keyboard focus to the entry that was open.
+  // Return keyboard focus to the entry that was open: the list entry if the
+  // list is showing, otherwise its dot on the map (phone Map tab).
   const item = document.querySelector(`.incident-item[data-id="${CSS.escape(id)}"]`);
-  if (item) {
+  if (item && item.offsetParent) {
     item.focus({ preventScroll: true });
     item.scrollIntoView({ block: "nearest" });
+  } else {
+    mapState.markers.get(id)?.getElement()?.focus({ preventScroll: true });
   }
 }
 
@@ -230,8 +243,73 @@ async function copyLink() {
   }
 }
 
+// Phone: Map and List tabs.
+function setTab(name) {
+  document.getElementById("explorer").dataset.tab = name;
+  for (const tab of document.querySelectorAll(".view-tab")) {
+    const selected = tab.id === `tab-${name}`;
+    tab.setAttribute("aria-selected", String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+  }
+  // Leaflet must re-measure a map that was hidden.
+  if (name === "map") mapState.map.invalidateSize();
+}
+
+function setUpTabs() {
+  const tabs = [...document.querySelectorAll(".view-tab")];
+  for (const tab of tabs) {
+    tab.addEventListener("click", () => setTab(tab.id.replace("tab-", "")));
+    tab.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      const next = tabs[(tabs.indexOf(tab) + 1) % tabs.length];
+      setTab(next.id.replace("tab-", ""));
+      next.focus();
+    });
+  }
+}
+
+// Phone: drag the record's handle down to close the sheet.
+function setUpSheetDrag() {
+  const record = document.getElementById("record");
+  const header = document.getElementById("sheet-header");
+  let startY = null;
+  let offset = 0;
+  header.addEventListener("pointerdown", (event) => {
+    if (event.target.closest("button")) return;
+    startY = event.clientY;
+    offset = 0;
+    header.setPointerCapture(event.pointerId);
+    record.classList.add("is-dragging");
+  });
+  header.addEventListener("pointermove", (event) => {
+    if (startY === null) return;
+    offset = Math.max(0, event.clientY - startY);
+    record.style.transform = `translateY(${offset}px)`;
+  });
+  const end = () => {
+    if (startY === null) return;
+    startY = null;
+    record.classList.remove("is-dragging");
+    if (offset > 90) {
+      navigateTo(null);
+    } else {
+      record.classList.add("is-settling");
+      record.style.transform = "";
+      setTimeout(() => record.classList.remove("is-settling"), 200);
+    }
+  };
+  header.addEventListener("pointerup", end);
+  header.addEventListener("pointercancel", end);
+}
+
 function setUpRecord() {
   document.getElementById("back-button").addEventListener("click", () => navigateTo(null));
+  document.getElementById("sheet-close").addEventListener("click", () => navigateTo(null));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mapState.selectedId) navigateTo(null);
+  });
+  setUpTabs();
+  setUpSheetDrag();
   document.getElementById("copy-link").addEventListener("click", copyLink);
   // Browsers fire one or both of these for Back, Forward and #links.
   window.addEventListener("popstate", () => route({ fromLink: true }));
