@@ -513,16 +513,6 @@ function showLegend() {
   }
 }
 
-function setUpMenu() {
-  const button = document.querySelector(".menu-button");
-  const nav = document.getElementById("site-nav");
-  button.addEventListener("click", () => {
-    const open = button.getAttribute("aria-expanded") !== "true";
-    button.setAttribute("aria-expanded", String(open));
-    nav.classList.toggle("is-open", open);
-  });
-}
-
 function showTotals(incidents) {
   for (const dd of document.querySelectorAll("#totals dd")) {
     dd.textContent = incidents.filter((e) => e.status === dd.dataset.grade).length;
@@ -556,7 +546,6 @@ function showLatestChanges(incidents, count = 5) {
 }
 
 async function main() {
-  setUpMenu();
   showLegend();
   try {
     const response = await fetch("data/incidents.json");
